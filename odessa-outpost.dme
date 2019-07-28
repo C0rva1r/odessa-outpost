@@ -1603,6 +1603,8 @@
 #include "code\modules\mob\language\serbian.dm"
 #include "code\modules\mob\language\station.dm"
 #include "code\modules\mob\language\synthetic.dm"
+#include "code\modules\mob\libraries\_function.dm"
+#include "code\modules\mob\libraries\traits.dm"
 #include "code\modules\mob\living\damage_procs.dm"
 #include "code\modules\mob\living\death.dm"
 #include "code\modules\mob\living\default_language.dm"

@@ -195,3 +195,5 @@ While it would be entirely possible to check the mob's move handlers list for th
 	var/datum/stat_holder/stats
 
 	var/mob_classification = 0 //Bitfield. Uses TYPE_XXXX defines in defines/mobs.dm.
+
+	var/datum/library = list()	//A list of lists of the characteristics of the mob.
