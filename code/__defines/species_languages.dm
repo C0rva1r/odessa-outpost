@@ -39,6 +39,8 @@
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_OCCULT "Occult"
 
+#define LANGUAGE_SHADEKIN "Shadekin Empathy"
+
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
 #define RESTRICTED   2   // Language can only be acquired by spawning or an admin.
