@@ -1,4 +1,4 @@
-/obj/effect/shadekin_ability
+/*/obj/effect/shadekin_ability
 	name = ""
 	desc = ""
 	icon = 'icons/mob/screen_spells.dmi'
@@ -103,4 +103,4 @@
 /obj/effect/shadekin_ability/create_shade/do_ability()
 	if(!..())
 		return
-	my_kin.add_modifier(/datum/modifier/shadekin/create_shade,20 SECONDS)
+	my_kin.add_modifier(/datum/modifier/shadekin/create_shade,20 SECONDS)*/

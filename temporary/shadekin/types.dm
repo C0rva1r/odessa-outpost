@@ -1,4 +1,5 @@
 /////////////////////////////////////////////////////////////////
+/*
 /mob/living/simple_animal/shadekin/red
 	name = "red-eyed shadekin"
 	eye_state = RED_EYES
@@ -90,4 +91,4 @@
 /mob/living/simple_animal/shadekin/orange/dark
 	icon_state = "dark"
 /mob/living/simple_animal/shadekin/orange/brown
-	icon_state = "brown"
+	icon_state = "brown"*/

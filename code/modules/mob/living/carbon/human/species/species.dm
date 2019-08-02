@@ -10,7 +10,7 @@
 	var/blurb = "A completely nondescript species."		// A brief lore summary for use in the chargen screen.
 	var/mobtype = "/mob/living/carbon/human"			// The mob type that should be spawned for this. TODO: Make spawn code use it.
 
-	var/default_form = FORM_HUMAN	//If nothing else sets it, what do we look like.
+	var/default_form = FORM_HUMAN						//If nothing else sets it, what do we look like.
 
 	var/mob_size	= MOB_MEDIUM
 	var/blood_volume = 560                               // Initial blood volume.
