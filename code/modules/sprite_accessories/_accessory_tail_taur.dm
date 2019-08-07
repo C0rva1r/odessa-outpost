@@ -359,3 +359,18 @@
 	ckeys_allowed = null
 	colored_layers = 2
 	extra_overlay_w = "alraunecolor_closed_markings"
+
+/datum/sprite_accessory/tail/taur/shadekin			//If it works, it works. Don't touch it.
+	name = "Shadekin tail"
+	icon_state = "shadekin_tail_s"
+	colored_layers = 1
+	blend = ICON_MULTIPLY
+
+/datum/sprite_accessory/tail/taur/shadekin/shadekin_tip
+	name = "Shadekin tail tip dual-colour"
+	colored_layers = 2
+
+/datum/sprite_accessory/tail/taur/shadekin/shadekin_strips
+	name = "Shadekin tail strips dual-colour"
+	icon_state = "shadekin_tail_strip_s"
+	colored_layers = 2

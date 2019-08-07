@@ -457,3 +457,8 @@
 	desc = ""
 	icon_state = "alurane-ears"
 	ckeys_allowed = list("natje")
+
+/datum/sprite_accessory/ears/shadekin
+	name = "shadekin ears"
+	desc = ""
+	icon_state = "shadekin_base"

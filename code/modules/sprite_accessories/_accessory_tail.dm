@@ -863,11 +863,3 @@
 	blend = ICON_MULTIPLY
 	extra_overlay = "buggofirefly_vass_markings"
 	extra_overlay_w = "buggofatfirefly_vass_markings"
-
-/datum/sprite_accessory/tail/shadekin
-	name = "Shadekin tail"
-	desc = ""
-	icon = 'icons/mob/shadekin64.dmi'
-	icon_state = "shadekin_s"
-	colored_layers = 1
-	blend = ICON_MULTIPLY
