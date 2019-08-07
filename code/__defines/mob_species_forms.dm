@@ -50,6 +50,7 @@
 #define SPECIES_SKELETON		"Skeleton"
 #define SPECIES_GOLEM			"Golem"
 #define SPECIES_EVENT1			"X Occursus"
+#define SPECIES_OBSERVER		"Observer"
 
 // Forms for the Appearances
 #define FORM_HUMAN				"Human"
@@ -65,6 +66,7 @@
 #define FORM_SLIME				"Slime"
 #define FORM_AVIAN				"Avian"
 #define FORM_SPIDER				"Arachnoid"
+#define FORM_SHADEKIN			"Shadekin"
 
 #define FORM_BIRD				"Teshari"
 

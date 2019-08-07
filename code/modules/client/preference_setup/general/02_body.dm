@@ -142,7 +142,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["select_form"])
 		var/new_form = input(user, "Choose your character's form:", CHARACTER_PREFERENCE_INPUT_TITLE, pref.species_form) as null|anything in GLOB.selectable_species_form_list
-		if(new_form && CanUseTopic(user))
+		if(new_form && CanUseTopic(user))		
 			pref.species_form = new_form
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["select_variant"])

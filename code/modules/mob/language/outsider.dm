@@ -100,3 +100,23 @@
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
 	shorthand = "N/A"
+
+/datum/language/empathy
+	name = LANGUAGE_EMPATHY
+	desc = "A special lanuage that many anomolous creatures like shadekins tend to speak."
+	speech_verb = list("Marrs")
+	ask_verb = list("Marrs")
+	exclaim_verb = list("Marrs")
+	colour = "ghost"
+	key = "e"
+	flags = RESTRICTED | HIVEMIND
+	syllables = list("marr, maar, mmaaarr, Maaar, marr, Wurr, raaam aarrr, mar, shlur, mlurr, faarr, arr, sar, maaaarrr, mar, mrrrr, mrrarrr, sturr, mlurr")
+	shorthand = "N/A"
+
+/datum/language/redspace
+	name = LANGUAGE_REDSPACE
+	desc = "The tongue of those whom come from the realms of redspace."
+	colour = "cult"
+	key = "q"
+	flags = RESTRICTED | HIVEMIND | NONVERBAL
+	shorthand = "N/A"

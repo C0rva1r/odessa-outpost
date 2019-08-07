@@ -15,12 +15,13 @@
 #define IS_RESTRICTED     0x4    // Is not a core/normally playable species. (castes, mutantraces)
 
 // Species appearance flags
-#define HAS_SKIN_TONE     0x1    // Skin tone selectable in chargen. (0-255)
-#define HAS_SKIN_COLOR    0x2    // Skin colour selectable in chargen. (RGB)
-#define HAS_LIPS          0x4    // Lips are drawn onto the mob icon. (lipstick)
-#define HAS_UNDERWEAR     0x8    // Underwear is drawn onto the mob icon.
-#define HAS_EYE_COLOR     0x10   // Eye colour selectable in chargen. (RGB)
-#define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
+#define HAS_SKIN_TONE     	0x1    // Skin tone selectable in chargen. (0-255)
+#define HAS_SKIN_COLOR    	0x2    // Skin colour selectable in chargen. (RGB)
+#define HAS_LIPS          	0x4    // Lips are drawn onto the mob icon. (lipstick)
+#define HAS_UNDERWEAR     	0x8    // Underwear is drawn onto the mob icon.
+#define HAS_EYE_COLOR      	0x10   // Eye colour selectable in chargen. (RGB)
+#define HAS_SHADE_EYE_COLOR	0x20   // Shadekin eye colour selectable in chargen. (RGB)
+#define HAS_HAIR_COLOR   	0x40   // Hair colour selectable in chargen. (RGB)
 
 // Languages.
 #define LANGUAGE_COMMON "English Common"
@@ -39,7 +40,8 @@
 #define LANGUAGE_CULT "Cult"
 #define LANGUAGE_OCCULT "Occult"
 
-#define LANGUAGE_SHADEKIN "Shadekin Empathy"
+#define LANGUAGE_EMPATHY "Empathy"
+#define LANGUAGE_REDSPACE "Red Hunter"
 
 // Language flags.
 #define WHITELISTED  1   // Language is available if the speaker is whitelisted.
