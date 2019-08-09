@@ -718,3 +718,9 @@
 		icon_state = "shadekin_eyes_r"
 		blend = ICON_MULTIPLY
 		body_parts = list(BP_HEAD)
+
+	shadekin_ears_tips
+		name = "shadekin ear tips"
+		icon_state = "shadekin_ear_tips"
+		blend = ICON_MULTIPLY
+		body_parts = list(BP_HEAD)
