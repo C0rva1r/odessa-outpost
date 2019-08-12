@@ -27,7 +27,6 @@ SUBSYSTEM_DEF(research)
 		design_ids[design.id] = design
 		design_ids["[design.id]"] = design
 
-	generate_integrated_circuit_designs()
 
 	for(var/d in all_designs)
 		var/datum/design/design = d
@@ -50,7 +49,7 @@ SUBSYSTEM_DEF(research)
 
 	return ..()
 
-
+/*
 /datum/controller/subsystem/research/proc/generate_integrated_circuit_designs()
 	for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
 		if(!(IC.spawn_flags & IC_SPAWN_RESEARCH))
@@ -74,7 +73,7 @@ SUBSYSTEM_DEF(research)
 		// If path, make it accessible in both path and text form.
 		design_ids[design.id] = design
 		design_ids["[design.id]"] = design
-
+*/
 
 /datum/controller/subsystem/research/proc/initialize_designs(datum/research/research)
 	// If designs are already generated, initialized right away.

@@ -84,6 +84,8 @@ GLOBAL_LIST_EMPTY(storyteller_cache)
 	var/disable_player_mice = 0
 	var/uneducated_mice = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
 
+	var/allow_ic_printing = TRUE //Whether players should be allowed to print IC circuits from scripts.
+
 	var/allow_extra_antags = 0
 	var/guests_allowed = 1
 	var/debugparanoid = 0

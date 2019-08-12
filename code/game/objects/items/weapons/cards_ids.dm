@@ -50,6 +50,14 @@
 	function = "teleporter"
 	data = "Clown Land"
 
+/obj/item/weapon/card/data/full_color
+	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one has the entire card colored."
+	icon_state = "data_2"
+
+/obj/item/weapon/card/data/disk
+	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one inexplicibly looks like a floppy disk."
+	icon_state = "data_3"
+
 /*
  * ID CARDS
  */

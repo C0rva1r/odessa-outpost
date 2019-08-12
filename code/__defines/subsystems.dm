@@ -55,6 +55,7 @@
 #define INIT_ORDER_CHAR_SETUP 10
 #define INIT_ORDER_ATOMS 9
 #define INIT_ORDER_MACHINES 8
+#define SS_INIT_CIRCUIT	5
 #define INIT_ORDER_TIMER 1
 #define INIT_ORDER_DEFAULT 0
 #define INIT_ORDER_AIR -1
@@ -75,6 +76,8 @@
 #define INIT_ORDER_LATELOAD -180
 
 // SS runlevels
+
+#define SS_PRIORITY_CIRCUIT	20	// Processing Circuit's ticks and all that.
 
 #define RUNLEVEL_INIT 0
 #define RUNLEVEL_LOBBY 1

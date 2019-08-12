@@ -18,6 +18,8 @@
 
 #define NO_REACT        (1<<6)  // Applied to a reagent holder, the contents will not react with each other.
 
+#define NO_TEMP_CHANGE  (1<<7) // Reagents do not cool or heat to ambient temperature in this container.
+
 
 // Is an open container for all intents and purposes.
 #define OPENCONTAINER 	(REFILLABLE | DRAINABLE | TRANSPARENT)
@@ -49,3 +51,28 @@
 
 // Reagent specific heat is not yet implemented, this is here for compatibility reasons
 #define SPECIFIC_HEAT_DEFAULT			200
+
+//Not sure where to put this thing except here for now. Honestly not sure if needed.
+#define TEMPERATURE_SENSITIVE(A) (A && !QDELETED(A) && !(flags & NO_TEMP_CHANGE))
+#define TEMPERATURE_EQUILIBRIUM_THRESHOLD 5
+#define TEMPERATURE_EQUILIBRIUM_CONSTANT 0.25
+
+#define ADJUST_ATOM_TEMPERATURE(_atom, _temp) \
+	_atom.temperature = _temp; \
+	if(_atom.reagents) { \
+		HANDLE_REACTIONS(_atom.reagents); \
+	} \
+	QUEUE_TEMPERATURE_ATOMS(_atom);
+/*
+#define QUEUE_TEMPERATURE_ATOMS(_atoms) \
+	if(islist(_atoms)) { \
+		for(var/thing in _atoms) { \
+			var/atom/A = thing; \
+			if(TEMPERATURE_SENSITIVE(A)) { \
+				SStemperature.processing[A] = TRUE; \
+			} \
+		} \
+	} else if(TEMPERATURE_SENSITIVE(_atoms)) { \
+		SStemperature.processing[_atoms] = TRUE; \
+	}
+*/

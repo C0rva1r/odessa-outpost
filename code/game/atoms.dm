@@ -694,3 +694,12 @@ its easier to just keep the beam vertical.
 	if(!L)
 		return null
 	return L.AllowDrop() ? L : L.drop_location()
+
+//Just going to leave this here for circuitry
+/atom/movable/proc/dropInto(var/atom/destination)
+	while(istype(destination))
+		var/atom/drop_destination = destination.onDropInto(src)
+		if(!istype(drop_destination) || drop_destination == destination)
+			return forceMove(destination)
+		destination = drop_destination
+	return forceMove(null)
