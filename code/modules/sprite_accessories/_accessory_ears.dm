@@ -461,4 +461,5 @@
 /datum/sprite_accessory/ears/shadekin
 	name = "shadekin ears"
 	desc = ""
-	icon_state = "shadekin_base"
+	icon_state = "shadekin_ears"
+	blend = ICON_MULTIPLY

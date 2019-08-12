@@ -50,7 +50,6 @@
 #define SPECIES_SKELETON		"Skeleton"
 #define SPECIES_GOLEM			"Golem"
 #define SPECIES_EVENT1			"X Occursus"
-#define SPECIES_OBSERVER		"Observer"
 
 // Forms for the Appearances
 #define FORM_HUMAN				"Human"
