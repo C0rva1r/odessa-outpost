@@ -114,11 +114,3 @@
 	base = 'icons/mob/human_races/r_def_shadekin.dmi'
 	deform = 'icons/mob/human_races/r_def_shadekin.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
-	//var/eye_state = null
-	//var/eye_icon_state = "white"													//Not being used YET! -Nylon
-
-/*/datum/species_form/shadekin/red
-	playable = FALSE
-	variantof = FORM_SHADEKIN
-	eye_state = RED_EYES
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR*/			//Not done yet
