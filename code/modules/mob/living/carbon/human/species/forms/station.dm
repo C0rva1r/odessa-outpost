@@ -2,6 +2,7 @@
 	name = FORM_HUMAN
 //	name_plural = "Humans"
 	base = 'icons/mob/human_races/r_human_white.dmi'
+	deform = 'icons/mob/human_races/r_def_human_white.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_EYE_COLOR | HAS_SKIN_COLOR
 	playable = TRUE
 
@@ -99,6 +100,13 @@
 	deform = 'icons/mob/human_races/r_def_nevrean.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
 
+/datum/species_form/shadekin
+	playable = TRUE
+	name = FORM_SHADEKIN
+	base = 'icons/mob/human_races/r_def_shadekin.dmi'
+	deform = 'icons/mob/human_races/r_def_shadekin.dmi'
+	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
+
 /datum/species_form/spider
 	playable = TRUE
 	name = FORM_SPIDER
@@ -106,10 +114,25 @@
 	deform = 'icons/mob/human_races/r_def_spider.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
 
-
-/datum/species_form/shadekin
+/datum/species_form/stationxeno
 	playable = TRUE
-	name = FORM_SHADEKIN
-	base = 'icons/mob/human_races/r_def_shadekin.dmi'
-	deform = 'icons/mob/human_races/r_def_shadekin.dmi'
-	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
+	name = FORM_STATIONXENO
+	base = 'icons/mob/human_races/xenos/r_xenos_drone.dmi'
+	deform =  'icons/mob/human_races/xenos/r_xenos_drone.dmi'
+	variantof = FORM_STATIONXENO
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR
+
+/datum/species_form/stationxeno/hunter
+	name = FORM_STATIONXENO_HUNTER
+	base = 'icons/mob/human_races/xenos/r_xenos_hunter.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_hunter.dmi'
+
+/datum/species_form/stationxeno/queen
+	name = FORM_STATIONXENO_QUEEN
+	base = 'icons/mob/human_races/xenos/r_xenos_queen.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_queen.dmi'
+
+/datum/species_form/stationxeno/sentinel
+	name = FORM_STATIONXENO_SENTI
+	base = 'icons/mob/human_races/xenos/r_xenos_sentinel.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_sentinel.dmi'
