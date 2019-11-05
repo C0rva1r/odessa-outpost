@@ -67,16 +67,12 @@ var/list/global/tank_gauge_cache = list()
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		user << SPAN_NOTICE("\The [src] feels [descriptive].")
+		to_chat(user, SPAN_NOTICE("\The [src] feels [descriptive]."))
 
 /obj/item/weapon/tank/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	..()
 	if (istype(src.loc, /obj/item/assembly))
 		icon = src.loc
-
-	if ((istype(W, /obj/item/device/scanner/analyzer)) && get_dist(user, src) <= 1)
-		var/obj/item/device/scanner/analyzer/A = W
-		A.analyze_gases(src, user)
 	else if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
 		LB.blow(src)
@@ -173,7 +169,7 @@ var/list/global/tank_gauge_cache = list()
 		var/mob/living/carbon/location = loc
 		if(location.internal == src)
 			location.internal = null
-			usr << SPAN_NOTICE("You close the tank release valve.")
+			to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 		else
 			var/can_open_valve
 			if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
@@ -184,10 +180,10 @@ var/list/global/tank_gauge_cache = list()
 					can_open_valve = 1
 			if(can_open_valve)
 				location.internal = src
-				usr << SPAN_NOTICE("You open \the [src] valve.")
+				to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 				playsound(usr, 'sound/effects/Custom_internals.ogg', 100, 0)
 			else
-				usr << SPAN_WARNING("You need something to connect to \the [src].")
+				to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 			if(location.HUDneed.Find("internal"))
 				var/obj/screen/HUDelm = location.HUDneed["internal"]
 				HUDelm.update_icon()

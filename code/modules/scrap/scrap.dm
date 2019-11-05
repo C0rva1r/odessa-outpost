@@ -14,8 +14,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	icon_state = "small"
 	icon = 'icons/obj/structures/scrap/base.dmi'
 	var/obj/item/weapon/storage/internal/updating/loot	//the visible loot
-	var/loot_min = 7
-	var/loot_max = 13
+	var/loot_min = 6
+	var/loot_max = 12
 	var/list/loot_list = list(
 		/obj/random/material,
 		/obj/item/stack/rods/random,
@@ -144,14 +144,14 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 			if(H.shoes)
 				return
 
-			M << SPAN_DANGER("You step on \the [src]!")
+			to_chat(M, SPAN_DANGER("You step on \the [src]!"))
 
 			var/list/check = list(BP_L_LEG, BP_R_LEG)
 			while(check.len)
 				var/picked = pick(check)
 				var/obj/item/organ/external/affecting = H.get_organ(picked)
 				if(affecting)
-					if(affecting.robotic >= ORGAN_ROBOT)
+					if(BP_IS_ROBOTIC(affecting))
 						return
 					if(affecting.take_damage(5, 0))
 						H.UpdateDamageIcon()
@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		var/obj/item/organ/external/BP = victim.get_organ(victim.hand ? BP_L_ARM : BP_R_ARM)
 		if(!BP)
 			return FALSE
-		if(BP.status & ORGAN_ROBOT)
+		if(BP_IS_ROBOTIC(BP))
 			return FALSE
 		to_chat(user, "<span class='danger'>Ouch! You cut yourself while picking through \the [src].</span>")
 		BP.take_damage(5, null, TRUE, TRUE, "Sharp debris")
@@ -299,8 +299,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 20
+	loot_min = 9
+	loot_max = 18
 	dig_amount = 6
 	base_min = 9
 	base_max = 14
@@ -332,6 +332,7 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 		/obj/item/stack/rods/random,
 		/obj/item/weapon/material/shard,
 		/obj/random/junk/nondense,
+		/obj/random/material_ore,
 		/obj/random/pack/rare = 0.3,
 		/obj/random/tool_upgrade = 1,
 		/obj/random/mecha_equipment = 2
@@ -357,13 +358,13 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	name = "armaments refuse pile"
 	desc = "A pile of military supply refuse. Who thought it was a clever idea to throw that out?"
 	parts_icon = 'icons/obj/structures/scrap/guns_trash.dmi'
-	loot_min = 9
-	loot_max = 12
+	loot_min = 7
+	loot_max = 10
 	loot_list = list(
 		/obj/random/pack/gun_loot = 8,
 		/obj/random/powercell,
 		/obj/random/mecha_equipment = 2,
-		/obj/item/toy/crossbow,
+		/obj/item/toy/weapon/crossbow,
 		/obj/item/weapon/material/shard,
 		/obj/item/stack/material/steel/random,
 		/obj/random/junk/nondense,
@@ -376,9 +377,11 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "A pile of technical refuse. Some of it still glows and hums faintly."
 	parts_icon = 'icons/obj/structures/scrap/science.dmi'
 	loot_list = list(
-		/obj/random/pack/tech_loot = 3,
+		/obj/random/pack/tech_loot = 4,
 		/obj/random/powercell,
 		/obj/random/circuitboard,
+		/obj/random/material_ore,
+		/obj/random/common_oddities = 0.5,
 		/obj/random/pack/rare,//No weight on this, rare loot is pretty likely to appear in scientific scrap
 		/obj/random/tool_upgrade,
 		/obj/random/mecha_equipment)
@@ -396,9 +399,11 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	desc = "A pile of mixed rubbish. Useless and rotten, mostly."
 	parts_icon = 'icons/obj/structures/scrap/all_mixed.dmi'
 	loot_list = list(
-		/obj/random/lowkeyrandom = 4,
-		/obj/random/junk/nondense = 3,
-		/obj/item/stack/rods/random = 2,
+		/obj/random/lowkeyrandom = 5,
+		/obj/random/junk/nondense = 4,
+		/obj/item/stack/rods/random = 3,
+		/obj/random/common_oddities = 0.5,
+		/obj/random/material_ore,
 		/obj/item/weapon/material/shard,
 		/obj/random/pack/rare = 0.3
 	)
@@ -409,8 +414,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 20
+	loot_min = 11
+	loot_max = 18
 	base_min = 9
 	base_max = 14
 	big_item_chance = 75
@@ -421,8 +426,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 20
+	loot_min = 11
+	loot_max = 18
 	base_min = 9
 	base_max = 14
 	base_spread = 16
@@ -447,8 +452,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 20
+	loot_min = 7
+	loot_max = 18
 	base_min = 9
 	base_max = 14
 	base_spread = 16
@@ -460,8 +465,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 16
+	loot_min = 10
+	loot_max = 18
 	base_min = 9
 	base_max = 14
 	base_spread = 16
@@ -473,8 +478,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 13
-	loot_max = 20
+	loot_min = 11
+	loot_max = 18
 	base_min = 9
 	base_max = 14
 	base_spread = 16
@@ -486,8 +491,8 @@ GLOBAL_LIST_EMPTY(scrap_base_cache)
 	opacity = TRUE
 	density = TRUE
 	icon_state = "big"
-	loot_min = 8
-	loot_max = 14
+	loot_min = 7
+	loot_max = 16
 	base_min = 9
 	base_max = 14
 	base_spread = 16

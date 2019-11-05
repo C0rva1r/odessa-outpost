@@ -1,9 +1,13 @@
 /obj/item/weapon/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
+	icon = 'icons/obj/guns/energy.dmi'
 	icon_state = "energy"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
+
+	recoil_buildup = 0.05 //energy weapons have little to no recoil
+
 
 	var/charge_cost = 100 //How much energy is needed to fire.
 	var/obj/item/weapon/cell/cell = null

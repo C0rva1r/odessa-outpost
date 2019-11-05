@@ -3,7 +3,7 @@
 		..()
 		switch (pickweight(list("bloodyspai" = 1, "stealth" = 1, "screwed" = 1, "guns" = 1, "murder" = 1, "freedom" = 1, "hacker" = 1, "lordsingulo" = 1, "smoothoperator" = 1)))
 			if("bloodyspai")
-				new /obj/item/clothing/under/chameleon(src)
+				new /obj/item/clothing/under/admin/chameleon(src)
 				new /obj/item/clothing/mask/gas/voice(src)
 				new /obj/item/weapon/card/id/syndicate(src)
 				new /obj/item/clothing/shoes/syndigaloshes(src)
@@ -21,7 +21,7 @@
 				new /obj/item/device/powersink(src)
 				new /obj/item/clothing/suit/space/syndicate(src)
 				new /obj/item/clothing/head/helmet/space/syndicate(src)
-				new /obj/item/clothing/mask/gas/syndicate(src)
+				new /obj/item/clothing/mask/gas/tactical(src)
 				new /obj/item/weapon/tank/emergency_oxygen/double(src)
 				return
 
@@ -115,23 +115,24 @@
 	..()
 	new /obj/item/clothing/suit/space/syndicate(src)
 	new /obj/item/clothing/head/helmet/space/syndicate(src)
-	new /obj/item/clothing/mask/gas/syndicate(src)
+	new /obj/item/clothing/mask/gas/tactical(src)
 	new /obj/item/weapon/tank/emergency_oxygen/double(src)
 
 /obj/item/weapon/storage/box/syndie_kit/chameleon
 	name = "chameleon kit"
-	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately."
+	desc = "Comes with all the clothes you need to impersonate most people.  Acting lessons sold seperately. The box itself is made of plasteel."
+	matter = list(MATERIAL_PLASTEEL = 1)
 
 /obj/item/weapon/storage/box/syndie_kit/chameleon/New()
 	..()
-	new /obj/item/clothing/under/chameleon(src)
-	new /obj/item/clothing/head/chameleon(src)
-	new /obj/item/clothing/suit/chameleon(src)
-	new /obj/item/clothing/shoes/chameleon(src)
+	new /obj/item/clothing/under/admin/chameleon(src)
+	new /obj/item/clothing/head/admin/chameleon(src)
+	new /obj/item/clothing/suit/admin/chameleon(src)
+	new /obj/item/clothing/shoes/admin/chameleon(src)
 	new /obj/item/weapon/storage/backpack/chameleon(src)
-	new /obj/item/clothing/gloves/chameleon(src)
-	new /obj/item/clothing/mask/chameleon(src)
-	new /obj/item/clothing/glasses/chameleon(src)
+	new /obj/item/clothing/gloves/admin/chameleon(src)
+	new /obj/item/clothing/mask/admin/chameleon(src)
+	new /obj/item/clothing/glasses/admin/chameleon(src)
 	new /obj/item/weapon/gun/energy/chameleon(src)
 
 /obj/item/weapon/storage/box/syndie_kit/clerical
@@ -160,14 +161,64 @@
 	new /obj/item/device/spy_bug(src)
 	new /obj/item/device/spy_monitor(src)
 
+/obj/item/weapon/storage/box/syndie_kit/dartgun
+	name  = "dartgun kit"
+	desc = "Just like a mosquito bite."
+
+/obj/item/weapon/storage/box/syndie_kit/dartgun/New()
+	..()
+	new /obj/item/weapon/gun/projectile/dartgun(src)
+	new /obj/item/ammo_magazine/chemdart(src)
+
 /obj/item/weapon/storage/box/syndie_kit/g9mm
-	name = "\improper Smooth operator"
+	name = "\improper smooth operator kit"
 	desc = "9mm with silencer kit."
 
 /obj/item/weapon/storage/box/syndie_kit/g9mm/New()
 	..()
 	new /obj/item/weapon/gun/projectile/clarissa(src)
 	new /obj/item/weapon/silencer(src)
+	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/item/weapon/storage/box/syndie_kit/c20r
+	name = "C-20r box"
+	desc = "C-20r kit"
+
+/obj/item/weapon/storage/box/syndie_kit/c20r/New()
+	..()
+	new /obj/item/weapon/gun/projectile/automatic/c20r(src)
+	new /obj/item/ammo_magazine/smg10mm(src)
+
+/obj/item/weapon/storage/box/syndie_kit/revolver
+	name = "revolver box"
+	desc = "Revolver kit"
+
+/obj/item/weapon/storage/box/syndie_kit/revolver/New()
+	..()
+	new /obj/item/weapon/gun/projectile/revolver(src)
+	new /obj/item/ammo_magazine/sl357(src)
+
+/obj/item/weapon/storage/box/syndie_kit/sts35
+	name = "assault rifle box"
+	desc = "Assault rifle kit"
+	icon_state = "box_of_doom_big"
+	w_class = ITEM_SIZE_HUGE
+
+/obj/item/weapon/storage/box/syndie_kit/sts35/New()
+	..()
+	new /obj/item/weapon/gun/projectile/automatic/sts35(src)
+	new /obj/item/ammo_magazine/c762_short(src)
+
+/obj/item/weapon/storage/box/syndie_kit/antimaterial_rifle
+	name = "sniper rifle box"
+	desc = "Sniper rifle kit. One shot for real men."
+	icon_state = "box_of_doom_big"
+	w_class = ITEM_SIZE_HUGE
+
+/obj/item/weapon/storage/box/syndie_kit/antimaterial_rifle/New()
+	..()
+	new /obj/item/ammo_casing/a145(src)
+	new /obj/item/weapon/gun/projectile/heavysniper(src)
 
 /obj/item/weapon/storage/box/syndie_kit/toxin
 	name = "toxin kit"
@@ -179,7 +230,7 @@
 	new /obj/item/weapon/reagent_containers/syringe(src)
 
 /obj/item/weapon/storage/box/syndie_kit/cigarette
-	name = "\improper Tricky smokes"
+	name = "\improper tricky smokes"
 	desc = "Comes with the following brands of cigarettes, in this order: 2xFlash, 2xSmoke, 1xMindBreaker, 1xTricordrazine. Avoid mixing them up."
 
 /obj/item/weapon/storage/box/syndie_kit/cigarette/New()

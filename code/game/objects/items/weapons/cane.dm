@@ -7,7 +7,7 @@
 	flags = CONDUCT
 	force = WEAPON_FORCE_NORMAL
 	throwforce = WEAPON_FORCE_WEAK
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 	matter = list(MATERIAL_PLASTIC = 5)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 	tool_qualities = list(QUALITY_PRYING = 10)
@@ -58,3 +58,10 @@
 		name = "cane shaft"
 		icon_state = "nullrod"
 		item_state = "foldcane"
+
+/obj/item/weapon/cane/whitecane
+	name = "white cane"
+	desc = "A cane used by the blind."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "whitecane"
+	item_state = "whitecane"

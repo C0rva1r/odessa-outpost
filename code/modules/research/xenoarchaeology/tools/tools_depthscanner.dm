@@ -13,6 +13,7 @@
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
 	var/datum/depth_scan/current
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_GLASS = 1)
 
 /datum/depth_scan
 	var/time = ""
@@ -46,7 +47,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				L << "\blue \icon[src] [src] pings."
+				to_chat(L, "\blue \icon[src] [src] pings.")
 
 	else if(istype(A,/obj/structure/boulder))
 		var/obj/structure/boulder/B = A
@@ -65,7 +66,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				L << "\blue \icon[src] [src] pings [pick("madly","wildly","excitedly","crazily")]!"
+				to_chat(L, "\blue \icon[src] [src] pings [pick("madly","wildly","excitedly","crazily")]!")
 
 /obj/item/device/depth_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)

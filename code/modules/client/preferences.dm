@@ -75,7 +75,7 @@
 		return
 
 	if(!get_mob_by_key(client_ckey))
-		user << SPAN_DANGER("No mob exists for the given client!")
+		to_chat(user, SPAN_DANGER("No mob exists for the given client!"))
 		close_load_dialog(user)
 		return
 
@@ -117,7 +117,7 @@
 		if(config.forumurl)
 			user << link(config.forumurl)
 		else
-			user << SPAN_DANGER("The forum URL is not set in the server configuration.")
+			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
 	ShowChoices(usr)
 	return 1
@@ -186,6 +186,7 @@
 			real_name += "[pick(GLOB.last_names)]"
 	character.fully_replace_character_name(newname = real_name)
 	character.gender = gender
+	character.identifying_gender = gender_identity
 	character.age = age
 	character.b_type = b_type
 
@@ -200,7 +201,6 @@
 	character.facial_color = facial_color
 	character.skin_color = skin_color
 
-	character.religion = religion
 	character.s_tone = s_tone
 
 	character.species_aan = species_aan
@@ -226,7 +226,7 @@
 			var/underwear_item_name = all_underwear[underwear_category_name]
 			var/datum/category_item/underwear/UWD = underwear_category.items_by_name[underwear_item_name]
 			var/metadata = all_underwear_metadata[underwear_category_name]
-			var/obj/item/underwear/UW = UWD.create_underwear(metadata, character.form.underwear_icon)
+			var/obj/item/underwear/UW = UWD.create_underwear(character, metadata, character.form.underwear_icon)
 			if(UW)
 				UW.ForceEquipUnderwear(character, FALSE)
 		else
@@ -236,6 +236,7 @@
 
 	character.force_update_limbs()
 	character.update_mutations(0)
+	character.update_implants(0)
 
 
 	character.update_body(0)
@@ -257,6 +258,8 @@
 	if(!character.isSynthetic())
 		character.nutrition = rand(250, 450)
 
+	for(var/options_name in setup_options)
+		get_option(options_name).apply(character)
 
 
 /datum/preferences/proc/open_load_dialog(mob/user)

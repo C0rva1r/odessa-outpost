@@ -20,12 +20,12 @@
 	initial_flooring = /decl/flooring/carpet/turcarpet
 
 /turf/simulated/floor/carpet/sblucarpet
-	name = "sblue carpet"
+	name = "light blue carpet"
 	icon_state = "sblucarpet"
 	initial_flooring = /decl/flooring/carpet/sblucarpet
 
 /turf/simulated/floor/carpet/gaycarpet
-	name = "clown carpet"
+	name = "pink carpet"
 	icon_state = "gaycarpet"
 	initial_flooring = /decl/flooring/carpet/gaycarpet
 
@@ -59,9 +59,20 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
+/turf/simulated/floor/wood/wild1
+	icon_state = "wooden_floor_s1"
 
+/turf/simulated/floor/wood/wild2
+	icon_state = "wooden_floor_s2"
 
+/turf/simulated/floor/wood/wild3
+	icon_state = "wooden_floor_s3"
 
+/turf/simulated/floor/wood/wild4
+	icon_state = "wooden_floor_s4"
+
+/turf/simulated/floor/wood/wild5
+	icon_state = "wooden_floor_s5"
 
 /turf/simulated/floor/tiled
 	name = "floor"
@@ -293,9 +304,6 @@
 
 
 
-
-
-
 /turf/simulated/floor/tiled/cafe
 	name = "floor"
 	icon = 'icons/turf/flooring/tiles.dmi'
@@ -422,6 +430,33 @@
 	temperature = TCMB
 
 
+/turf/simulated/floor/tiled/derelict
+	name = "floor"
+	icon = 'icons/turf/flooring/derelict.dmi'
+	icon_state = "derelict1"
+	initial_flooring = /decl/flooring/tiling/derelict/white_red_edges
+
+/turf/simulated/floor/tiled/derelict/white_red_edges
+	name = "floor"
+	icon_state = "derelict1"
+	initial_flooring = /decl/flooring/tiling/derelict/white_red_edges
+
+/turf/simulated/floor/tiled/derelict/white_small_edges
+	name = "floor"
+	icon_state = "derelict2"
+	initial_flooring = /decl/flooring/tiling/derelict/white_small_edges
+
+/turf/simulated/floor/tiled/derelict/red_white_edges
+	name = "floor"
+	icon_state = "derelict3"
+	initial_flooring = /decl/flooring/tiling/derelict/red_white_edges
+
+/turf/simulated/floor/tiled/derelict/white_big_edges
+	name = "floor"
+	icon_state = "derelict4"
+	initial_flooring = /decl/flooring/tiling/derelict/white_big_edges
+
+
 // Placeholders
 /turf/simulated/floor/airless/lava
 /turf/simulated/floor/light
@@ -441,6 +476,9 @@
 /turf/simulated/floor/beach/sand/desert
 	icon_state = "desert"
 
+/turf/simulated/floor/beach/sand/drywater
+	icon_state = "sand1"
+
 /turf/simulated/floor/beach/coastline
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
@@ -450,8 +488,32 @@
 	name = "water"
 	icon_state = "water"
 
+/turf/simulated/floor/beach/water/coastwater
+	icon_state = "beach"
+
+/turf/simulated/floor/beach/water/coastwatercorner
+	icon_state = "beachcorner"
+
+/turf/simulated/floor/beach/water/swamp
+	icon_state = "seashallow_swamp"
+
+/turf/simulated/floor/beach/water/jungle
+	icon_state = "seashallow_jungle1"
+
+/turf/simulated/floor/beach/water/flooded
+	icon_state = "seashallow_jungle2"
+
+/turf/simulated/floor/beach/water/ice
+	icon_state = "seashallow_frozen"
+
 /turf/simulated/floor/beach/water/ocean
 	icon_state = "seadeep"
+
+/turf/simulated/floor/beach/water/jungledeep
+	icon_state = "seashallow_jungle3"
+
+/turf/simulated/floor/beach/water/shallow
+	icon_state = "seashallow"
 
 /turf/simulated/floor/beach/water/New()
 	..()

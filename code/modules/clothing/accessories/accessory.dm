@@ -1,3 +1,5 @@
+/*Ties*/
+
 /obj/item/clothing/accessory
 	name = "blue tie"
 	desc = "A neosilk clip-on tie with a blue design."
@@ -48,7 +50,7 @@
 	loc = has_suit
 	has_suit.overlays += get_inv_overlay()
 
-	user << SPAN_NOTICE("You attach \the [src] to \the [has_suit].")
+	to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 	src.add_fingerprint(user)
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
@@ -72,20 +74,15 @@
 		return	//we aren't an object on the ground so don't call parent
 	..()
 
-/obj/item/clothing/accessory/tie/red
-	name = "red tie"
-	desc = "A neosilk clip-on tie with a red design."
-	icon_state = "redtie"
-
-/obj/item/clothing/accessory/tie/yellowbig
-	name = "yellow large tie"
-	desc = "A neosilk clip-on tie with a gaudy yellow design."
-	icon_state = "horribletie"
-
 /obj/item/clothing/accessory/tie/black
 	name = "black tie"
 	desc = "A neosilk clip-on tie with a black design."
 	icon_state = "blacktie"
+
+/obj/item/clothing/accessory/tie/blue
+	name = "blue tie"
+	desc = "A neosilk clip-on tie with a blue design."
+	icon_state = "bluetie"
 
 /obj/item/clothing/accessory/tie/blueclip
 	name = "blue clip tie"
@@ -97,15 +94,20 @@
 	desc = "A neosilk clip-on tie with a striped blue design."
 	icon_state = "bluelongtie"
 
+/obj/item/clothing/accessory/tie/darkgreen
+	name = "dark green tie"
+	desc = "A neosilk clip-on tie with a dark green design."
+	icon_state = "dgreentie"
+
 /obj/item/clothing/accessory/tie/navy
 	name = "navy tie"
 	desc = "A neosilk clip-on tie with a navy design."
 	icon_state = "navytie"
 
-/obj/item/clothing/accessory/tie/dgreen
-	name = "dark green tie"
-	desc = "A neosilk clip-on tie with a dark green design."
-	icon_state = "dgreentie"
+/obj/item/clothing/accessory/tie/red
+	name = "red tie"
+	desc = "A neosilk clip-on tie with a red design."
+	icon_state = "redtie"
 
 /obj/item/clothing/accessory/tie/redclip
 	name = "red clip tie"
@@ -127,12 +129,20 @@
 	desc = "A neosilk clip-on tie with a yellow design."
 	icon_state = "yellowtie"
 
+/obj/item/clothing/accessory/tie
+	name = "yellow large tie"
+	desc = "A neosilk clip-on tie with a gaudy yellow design."
+	icon_state = "horribletie"
+
+/*Stethoscope*/
+
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
 	desc = "An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing."
 	icon_state = "stethoscope"
 
 /obj/item/clothing/accessory/stethoscope/attack(mob/living/carbon/human/M, mob/living/user)
+	// TODO: baymed, rework this to use something like get_heartbeat()
 	if(ishuman(M) && isliving(user))
 		if(user.a_intent == I_HELP)
 			var/body_part = parse_zone(user.targeted_organ)
@@ -147,7 +157,7 @@
 				var/heartbeat = 0
 				if(M.species && M.species.has_organ[BP_HEART])
 					var/obj/item/organ/internal/heart/heart = M.internal_organs_by_name[BP_HEART]
-					if(heart && !heart.robotic)
+					if(heart && !BP_IS_ROBOTIC(heart))
 						heartbeat = 1
 				if(M.stat == DEAD || (M.status_flags&FAKEDEATH))
 					sound_strength = "cannot hear"
@@ -184,8 +194,8 @@
 				user.visible_message("[user] places [src] against [M]'s [body_part] and listens attentively.", "You place [src] against [their] [body_part]. You [sound_strength] [sound].")
 	return ..(M,user)
 
+/*Medals*/
 
-//Medals
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"
 	desc = "A bronze medal."
@@ -232,3 +242,366 @@
 /obj/item/clothing/accessory/medal/gold/heroism
 	name = "medal of exceptional heroism"
 	desc = "An extremely rare golden medal awarded only by company officials. To recieve such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
+
+/*Waistcoat*/
+/obj/item/clothing/accessory/wcoat/black
+	name = "black waistcoat"
+	desc = "A classy black waistcoat."
+	icon_state = "vest"
+	item_state = "vest"
+
+/obj/item/clothing/accessory/wcoat/brown
+	name = "brown waistcoat"
+	desc = "A classy brown waistcoat."
+	icon_state = "brown_waistcoat"
+	item_state = "brown_waistcoat"
+
+/obj/item/clothing/accessory/wcoat/elegant
+	name = "elegant waistcoat"
+	desc = "A classy elegant waistcoat."
+	icon_state = "elegant_waistcoat"
+	item_state = "elegant_waistcoat"
+
+/obj/item/clothing/accessory/wcoat/grey
+	name = "grey waistcoat"
+	desc = "A classy grey waistcoat."
+	icon_state = "grey_waistcoat"
+	item_state = "grey_waistcoat"
+
+/obj/item/clothing/accessory/wcoat/red
+	name = "red waistcoat"
+	desc = "A classy red waistcoat."
+	icon_state = "red_waistcoat"
+	item_state = "red_waistcoat"
+
+/obj/item/clothing/accessory/wcoat/swvestblack
+	name = "black sweatervest"
+	desc = "A sleeveless black sweater."
+	icon_state = "sweatervest"
+	item_state = "sweatervest"
+
+/obj/item/clothing/accessory/wcoat/swvestblue
+	name = "blue sweatervest"
+	desc = "A sleeveless blue sweater."
+	icon_state = "sweatervest_blue"
+	item_state = "sweatervest_blue"
+
+/obj/item/clothing/accessory/wcoat
+	name = "red sweatervest"
+	desc = "A sleeveless red sweater."
+	icon_state = "sweatervest_red"
+	item_state = "sweatervest_red"
+	item_state_slots = list(slot_r_hand_str = "wcoat", slot_l_hand_str = "wcoat")
+	allowed = list(/obj/item/weapon/pen, /obj/item/weapon/paper, /obj/item/device/lighting/toggleable/flashlight, /obj/item/weapon/tank/emergency_oxygen, /obj/item/weapon/storage/fancy/cigarettes, /obj/item/weapon/storage/box/matches, /obj/item/weapon/reagent_containers/food/drinks/flask)
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	slot_flags = SLOT_OCLOTHING
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	siemens_coefficient = 0.9
+
+//Sweaters.
+
+/obj/item/clothing/accessory/sweater/blue
+	name = "blue sweater"
+	desc = "A warm knit sweater in light blue."
+	icon_state = "sweater_blue"
+
+/obj/item/clothing/accessory/sweater/darkblue
+	name = "dark blue sweater"
+	desc = "A warm knit sweater in dark blue."
+	icon_state = "sweater_nt"
+
+/obj/item/clothing/accessory/sweater/grey
+	name = "grey sweater"
+	desc = "A warm knit sweater in grey."
+	icon_state = "sweater"
+
+/obj/item/clothing/accessory/sweater/heart
+	name = "heart sweater"
+	desc = "A warm knit sweater in light blue with a big heart."
+	icon_state = "sweater_blueheart"
+
+/obj/item/clothing/accessory/sweater/keyhole
+	name = "keyhole sweater"
+	desc = "A lavender sweater with an open chest."
+	icon_state = "keyholesweater"
+
+/obj/item/clothing/accessory/sweater/mint
+	name = "mint sweater"
+	desc = "A warm knit sweater with a minty tint."
+	icon_state = "sweater_mint"
+
+/obj/item/clothing/accessory/sweater/pink
+	name = "pink sweater"
+	desc = "A warm knit sweater in pink."
+	icon_state = "sweater_pink"
+
+/obj/item/clothing/accessory/sweater/blackneck
+	name = "black turtleneck"
+	desc = "A tight turtleneck in black."
+	icon_state = "turtleneck_black"
+
+/obj/item/clothing/accessory/sweater
+	name = "christmas turtleneck"
+	desc = "A very festive holiday sweater."
+	icon_state = "turtleneck_winterred"
+	slot_flags = SLOT_OCLOTHING
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	siemens_coefficient = 0.9
+
+/*Suit Jackets*/
+
+/obj/item/clothing/accessory/suitjacket/black
+	name = "black suit jacket"
+	desc = "A snappy black suit jacket."
+	icon_state = "ia_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/blue
+	name = "blue suit jacket"
+	desc = "A snappy blue suit jacket."
+	icon_state = "suitjacket_blue"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/burgundy
+	name = "burgundy suit jacket"
+	desc = "A snappy burgundy suit jacket."
+	icon_state = "burgundy_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/charcoal
+	name = "charcoal suit jacket"
+	desc = "A snappy charcoal suit jacket."
+	icon_state = "charcoal_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/checkered
+	name = "checkered suit jacket"
+	desc = "A snappy checkered suit jacket."
+	icon_state = "checkered_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/green
+	name = "green suit jacket"
+	desc = "A snappy green suit jacket."
+	icon_state = "suitjacket_green"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/navy
+	name = "navy suit jacket"
+	desc = "A snappy navy suit jacket."
+	icon_state = "navy_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket/purple
+	name = "purple suit jacket"
+	desc = "A snappy purple suit jacket."
+	icon_state = "suitjacket_purp"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/accessory/suitjacket
+	name = "tan suit jacket"
+	desc = "A snappy tan suit jacket."
+	icon_state = "tan_jacket"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/*Scarves*/
+
+/obj/item/clothing/accessory/scarf/black
+	name = "black scarf"
+	desc = "A stylish black scarf."
+	icon_state = "blackscarf"
+
+/obj/item/clothing/accessory/scarf/christmas
+	name = "christmas scarf"
+	desc = "A stylish red and green scarf."
+	icon_state = "christmasscarf"
+
+/obj/item/clothing/accessory/scarf/darkblue
+	name = "dark blue scarf"
+	desc = "A stylish dark blue scarf."
+	icon_state = "darkbluescarf"
+
+obj/item/clothing/accessory/scarf/green
+	name = "green scarf"
+	desc = "A stylish green scarf."
+	icon_state = "greenscarf"
+
+/obj/item/clothing/accessory/scarf/lightblue
+	name = "light blue scarf"
+	desc = "A stylish light blue scarf."
+	icon_state = "lightbluescarf"
+
+/obj/item/clothing/accessory/scarf/orange
+	name = "orange scarf"
+	desc = "A stylish orange scarf."
+	icon_state = "orangescarf"
+
+/obj/item/clothing/accessory/scarf/purple
+	name = "purple scarf"
+	desc = "A stylish purple scarf."
+	icon_state = "purplescarf"
+
+/obj/item/clothing/accessory/scarf/red
+	name = "red scarf"
+	desc = "A stylish red scarf."
+	icon_state = "redscarf"
+
+/obj/item/clothing/accessory/scarf/white
+	name = "white scarf"
+	desc = "A stylish white scarf."
+	icon_state = "whitescarf"
+
+/obj/item/clothing/accessory/scarf/yellow
+	name = "yellow scarf"
+	desc = "A stylish yellow scarf."
+	icon_state = "yellowscarf"
+
+/obj/item/clothing/accessory/scarf/zebra
+	name = "zebra scarf"
+	desc = "A stylish black and white scarf."
+	icon_state = "zebrascarf"
+
+/obj/item/clothing/accessory/scarf/furblack
+	name = "black fur scarf"
+	desc = "A furred scarf in a black color."
+	icon_state = "furscarf_black"
+	item_state = "furscarf_black"
+
+/obj/item/clothing/accessory/scarf/furblue
+	name = "blue fur scarf"
+	desc = "A furred scarf in a blue color."
+	icon_state = "furscarf_blue"
+	item_state = "furscarf_blue"
+
+/obj/item/clothing/accessory/scarf/furbrown
+	name = "brown fur scarf"
+	desc = "A furred scarf in a brown color."
+	icon_state = "furscarf_brown"
+	item_state = "furscarf_brown"
+
+/obj/item/clothing/accessory/scarf/furcinnamon
+	name = "cinnamon fur scarf"
+	desc = "A furred scarf in a cinnamon color."
+	icon_state = "furscarf_cinnamon"
+	item_state = "furscarf_cinnamon"
+
+/obj/item/clothing/accessory/scarf/furcream
+	name = "cream fur scarf"
+	desc = "A furred scarf in a cream color."
+	icon_state = "furscarf_cream"
+	item_state = "furscarf_cream"
+
+/obj/item/clothing/accessory/scarf/furlbrown
+	name = "light brown fur scarf"
+	desc = "A furred scarf in a light brown color."
+	icon_state = "furscarf_lbrown"
+	item_state = "furscarf_lbrown"
+
+/obj/item/clothing/accessory/scarf/furorange
+	name = "orange fur scarf"
+	desc = "A furred scarf in a orange color."
+	icon_state = "furscarf_lasaga"
+	item_state = "furscarf_lasaga"
+
+/obj/item/clothing/accessory/scarf/furruddy
+	name = "ruddy fur scarf"
+	desc = "A furred scarf in a ruddy color."
+	icon_state = "furscarf_ruddy"
+	item_state = "furscarf_ruddy"
+
+/obj/item/clothing/accessory/scarf/fursilver
+	name = "silver fur scarf"
+	desc = "A furred scarf in a silver color."
+	icon_state = "furscarf_silver"
+	item_state = "furscarf_silver"
+
+/obj/item/clothing/accessory/scarf/neckblue
+	name = "blue neck scarf"
+	desc = "A blue neck scarf."
+	icon_state = "blue_scarf"
+	item_state = "blue_scarf"
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	w_class = ITEM_SIZE_SMALL
+	gas_transfer_coefficient = 0.90
+	price_tag = 50
+
+/obj/item/clothing/accessory/scarf/checkered
+	name = "checkered neck scarf"
+	desc = "A red and white checkered neck scarf."
+	icon_state = "redwhite_scarf"
+	item_state = "redwhite_scarf"
+
+/obj/item/clothing/accessory/scarf/neckgreen
+	name = "green neck scarf"
+	desc = "A green neck scarf."
+	icon_state = "green_scarf"
+	item_state = "green_scarf"
+
+/obj/item/clothing/accessory/scarf/neckred
+	name = "red neck scarf"
+	desc = "A red neck scarf."
+	icon_state = "red_scarf"
+	item_state = "red_scarf"
+
+/obj/item/clothing/accessory/scarf/stripedblue
+	name = "striped blue scarf"
+	desc = "A striped blue scarf."
+	icon_state = "stripedbluescarf"
+	item_state = "stripedbluescarf"
+
+/obj/item/clothing/accessory/scarf/stripedgreen
+	name = "striped green scarf"
+	desc = "A striped green scarf."
+	icon_state = "stripedgreenscarf"
+	item_state = "stripedgreenscarf"
+
+/obj/item/clothing/accessory/scarf/stripedpurple
+	name = "striped green scarf"
+	desc = "A striped purple scarf."
+	icon_state = "stripedpurplescarf"
+	item_state = "stripedpurplescarf"
+
+/obj/item/clothing/accessory/scarf
+	name = "striped red scarf"
+	desc = "A striped red scarf."
+	icon_state = "stripedredscarf"
+	item_state = "stripedredscarf"
+
+/obj/item/clothing/accessory/ninjascarf /*Omitted from scarf selection because it's more of a costume piece.*/
+	name = "ninja scarf"
+	desc = "A stealthy, ominous scarf."
+	icon_state = "ninja_scarf"
+	item_state = "ninja_scarf"
+	siemens_coefficient = 0
+
+/*One-Off Stuff*/
+/obj/item/clothing/accessory/necklace
+	name = "metal necklace"
+	desc = "A shiny steel chain with a vague metallic object dangling off it."
+	icon_state = "tronket"
+	item_state = "tronket"
+
+/obj/item/clothing/accessory/dropstraps
+	name = "drop straps"
+	desc = "White suspenders worn over the shoulders."
+	icon_state = "flops"
+	item_state = "flops"
+
+/obj/item/clothing/accessory/dogtags
+	name = "dog tags"
+	desc = "A pair of engraved metal identification tags."
+	icon_state = "tags"
+	item_state = "tags"
+
+/obj/item/clothing/accessory/legbrace
+	name = "leg brace"
+	desc = "A lightweight polymer frame designed to hold legs upright comfortably."
+	icon_state = "legbrace"
+	item_state = "legbrace"
+
+/obj/item/clothing/accessory/neckbrace
+	name = "neck brace"
+	desc = "A lightweight polymer frame designed to hold a neck upright comfortably."
+	icon_state = "neckbrace"
+	item_state = "neckbrace"

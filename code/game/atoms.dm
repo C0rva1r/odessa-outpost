@@ -2,7 +2,7 @@
 	layer = TURF_LAYER
 	plane = GAME_PLANE
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE
-	var/level = 2
+	var/level = ABOVE_PLATING_LEVEL
 	var/flags = 0
 	var/list/fingerprints
 	var/list/fingerprintshidden
@@ -29,6 +29,8 @@
 	var/auto_init = TRUE
 
 	var/initialized = FALSE
+
+	var/list/preloaded_reagents = null
 
 /atom/New(loc, ...)
 	init_plane()
@@ -61,6 +63,16 @@
 		update_light()
 
 	update_plane()
+
+	if(preloaded_reagents)
+		if(!reagents)
+			var/volume = 0
+			for(var/reagent in preloaded_reagents)
+				volume += preloaded_reagents[reagent]
+			create_reagents(volume)
+		for(var/reagent in preloaded_reagents)
+			reagents.add_reagent(reagent, preloaded_reagents[reagent])
+
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -132,7 +144,7 @@
 
 
 /atom/proc/bullet_act(obj/item/projectile/P, def_zone)
-	P.on_hit(src, 0, def_zone)
+	P.on_hit(src, def_zone)
 	. = FALSE
 
 /atom/proc/in_contents_of(container)//can take class or object instance as argument
@@ -258,12 +270,14 @@ its easier to just keep the beam vertical.
 			full_name += "oil-stained [name][infix]."
 
 	if(isobserver(user))
-		user << "\icon[src] This is [full_name] [suffix]"
+		to_chat(user, "\icon[src] This is [full_name] [suffix]")
 	else
 		user.visible_message("<font size=1>[user.name] looks at [src].</font>", "\icon[src] This is [full_name] [suffix]")
 
+	to_chat(user, show_stat_verbs()) //rewrite to show_stat_verbs(user)?
+
 	if(desc)
-		user << desc
+		to_chat(user, desc)
 
 	if(reagents)
 		if(reagent_flags & TRANSPARENT)
@@ -622,7 +636,7 @@ its easier to just keep the beam vertical.
 
 //This proc is called when objects are created during the round by players.
 //This allows them to behave differently from objects that are mapped in, adminspawned, or purchased
-/atom/proc/Created()
+/atom/proc/Created(var/mob/user)
 	return
 	//Should be called when:
 		//An item is printed at an autolathe or protolathe **COMPLETE**
@@ -694,3 +708,21 @@ its easier to just keep the beam vertical.
 	if(!L)
 		return null
 	return L.AllowDrop() ? L : L.drop_location()
+
+/atom/proc/get_sex()
+	return gender
+
+/atom/proc/get_gender()
+	return GLOB.gender_datums[gender]
+
+/atom/proc/gender_word(var/position, var/gen = null) //So you can suggest an alternative gender if needed.
+	var/datum/gender/G = null
+	if(istype(G, /datum/gender))
+		//Use as given.
+		G = gen
+	else if(istext(G))
+		G = GLOB.gender_datums[gen] //Convert to the gender using the name given.
+	else
+		G = get_gender() //Otherwise, default to this thing's gender.
+	if(!G) return GLOB.gender_datums["neuter"].word(position)
+	return G.word(position)

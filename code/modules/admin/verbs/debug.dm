@@ -147,7 +147,7 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 	set category = null
 	set name = "Make Abomination"
 
-	usr << "Ruby Mode disabled. Command aborted."
+	to_chat(usr, "Ruby Mode disabled. Command aborted.")
 	return
 	if(!ticker)
 		alert("Wait until the game starts.")
@@ -171,33 +171,33 @@ ADMIN_VERB_ADD(/client/proc/Debug2, R_DEBUG, FALSE)
 			return
 		else
 			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground."
+				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.")
 				new /obj/item/weapon/book/tome(M.loc)
 			else
-				M << "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie."
+				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.")
 			var/glimpse=pick("1","2","3","4","5","6","7","8")
 			switch(glimpse)
 				if("1")
-					M << "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel...")
 				if("2")
-					M << "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood...")
 				if("3")
-					M << "\red You remembered one thing from the glimpse... [cultwords["join"]] is join..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["join"]] is join...")
 				if("4")
-					M << "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell...")
 				if("5")
-					M << "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy...")
 				if("6")
-					M << "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology...")
 				if("7")
-					M << "\red You remembered one thing from the glimpse... [cultwords["self"]] is self..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["self"]] is self...")
 				if("8")
-					M << "\red You remembered one thing from the glimpse... [cultwords["see"]] is see..."
+					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["see"]] is see...")
 
 			if(M.mind)
 				M.mind.special_role = "Cultist"
 				ticker.mode.cult += M.mind
-			src << "Made [M] a cultist."
+			to_chat(src, "Made [M] a cultist.")
 */
 
 
@@ -347,33 +347,33 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_tog_aliens, R_DEBUG, FALSE)
 	var/list/areas_without_intercom = areas_all - areas_with_intercom
 	var/list/areas_without_camera = areas_all - areas_with_camera
 
-	world << "<b>AREAS WITHOUT AN APC:</b>"
+	to_chat(world, "<b>AREAS WITHOUT AN APC:</b>")
 	for(var/areatype in areas_without_APC)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT AN AIR ALARM:</b>"
+	to_chat(world, "<b>AREAS WITHOUT AN AIR ALARM:</b>")
 	for(var/areatype in areas_without_air_alarm)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT A REQUEST CONSOLE:</b>"
+	to_chat(world, "<b>AREAS WITHOUT A REQUEST CONSOLE:</b>")
 	for(var/areatype in areas_without_RC)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY LIGHTS:</b>"
+	to_chat(world, "<b>AREAS WITHOUT ANY LIGHTS:</b>")
 	for(var/areatype in areas_without_light)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT A LIGHT SWITCH:</b>"
+	to_chat(world, "<b>AREAS WITHOUT A LIGHT SWITCH:</b>")
 	for(var/areatype in areas_without_LS)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY INTERCOMS:</b>"
+	to_chat(world, "<b>AREAS WITHOUT ANY INTERCOMS:</b>")
 	for(var/areatype in areas_without_intercom)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
-	world << "<b>AREAS WITHOUT ANY CAMERAS:</b>"
+	to_chat(world, "<b>AREAS WITHOUT ANY CAMERAS:</b>")
 	for(var/areatype in areas_without_camera)
-		world << "* [areatype]"
+		to_chat(world, "* [areatype]")
 
 
 ADMIN_VERB_ADD(/client/proc/cmd_admin_dress, R_FUN, FALSE)
@@ -461,27 +461,27 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/thunderdome(M), slot_head)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse_rifle/destroyer(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/pulse/destroyer(M), slot_r_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/material/knife(M), slot_l_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/grenade/smokebomb(M), slot_r_store)
 
 
 		if ("tournament gangster") //gangster are supposed to fight each other. --rastaf0
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/det(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/inspector/suit(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/black(M), slot_shoes)
 
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/det_trench(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/rank/det_trench(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/powered/thermal/plain/monocle(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/det(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/rank/inspector(M), slot_head)
 
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver(M), slot_r_hand)
 			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/sl357(M), slot_l_store)
 
 		if ("tournament chef") //Steven Seagal FTW
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/chef(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/chef(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/rank/chef(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/black(M), slot_shoes)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/chefhat(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/rank/chef(M), slot_head)
 
 			M.equip_to_slot_or_del(new /obj/item/weapon/material/kitchen/rollingpin(M), slot_r_hand)
 			M.equip_to_slot_or_del(new /obj/item/weapon/material/knife(M), slot_l_hand)
@@ -512,32 +512,32 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 			M.equip_to_slot_or_del(new /obj/item/stack/tile/floor(M), slot_in_backpack)
 
 		if ("pirate")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/pirate(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/costume/history/pirate(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/brown(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/bandana(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/eyepatch(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword/pirate(M), slot_r_hand)
 
 		if ("space pirate")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/pirate(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/costume/history/pirate(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/brown(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/eyepatch(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword/pirate(M), slot_r_hand)
 
 		if ("soviet soldier")
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/soviet(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/costume/history/soviet(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/color/black(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/ushanka(M), slot_head)
 
 		if("tunnel clown")//Tunnel clowns rule!
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/clown(M), slot_w_uniform)
-			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/clown_shoes(M), slot_shoes)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/costume/job/clown(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/costume/job/clown(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick(M), slot_gloves)
-			M.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/clown_hat(M), slot_wear_mask)
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/chaplain_hood(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/mask/costume/job/clown(M), slot_wear_mask)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/rank/chaplain(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/powered/thermal/plain/monocle(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/chaplain_hoodie(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/rank/chaplain(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/weapon/bikehorn(M), slot_r_store)
 
 			var/obj/item/weapon/card/id/W = new(M)
@@ -558,7 +558,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/welding(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/powered/thermal/plain/monocle(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/apron(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/suit/rank/botanist(M), slot_wear_suit)
 			M.equip_to_slot_or_del(new /obj/item/weapon/material/knife(M), slot_l_store)
 			M.equip_to_slot_or_del(new /obj/item/weapon/tool/scalpel(M), slot_r_store)
 
@@ -574,7 +574,7 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses(M), slot_glasses)
-			M.equip_to_slot_or_del(new /obj/item/clothing/suit/wcoat(M), slot_wear_suit)
+			M.equip_to_slot_or_del(new /obj/item/clothing/accessory/wcoat/black(M), slot_accessory_buffer)
 			M.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(M), slot_l_store)
 
 			var/obj/item/weapon/storage/secure/briefcase/sec_briefcase = new(M)
@@ -689,14 +689,14 @@ ADMIN_VERB_ADD(/client/proc/cmd_admin_dress_old, R_FUN, FALSE)
 			M.equip_to_slot_or_del(W, slot_wear_id)
 
 		if("soviet admiral")
-			M.equip_to_slot_or_del(new /obj/item/clothing/head/hgpiratecap(M), slot_head)
+			M.equip_to_slot_or_del(new /obj/item/clothing/head/costume/history/piratecap(M), slot_head)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/combat(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/combat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/device/radio/headset/heads/captain(M), slot_l_ear)
 			M.equip_to_slot_or_del(new /obj/item/clothing/glasses/powered/thermal/plain/eyepatch(M), slot_glasses)
 			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/revolver/mateba(M), slot_belt)
-			M.equip_to_slot_or_del(new /obj/item/clothing/under/soviet(M), slot_w_uniform)
+			M.equip_to_slot_or_del(new /obj/item/clothing/under/costume/history/soviet(M), slot_w_uniform)
 			var/obj/item/weapon/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
 			W.icon_state = "centcom"
@@ -724,13 +724,13 @@ ADMIN_VERB_ADD(/client/proc/check_positions, R_DEBUG, FALSE)
 	var/turf/user_pos = get_turf(user)
 	var/turf/other_pos = get_turf(holder.marked_datum())
 
-	user << "Check relations of positions:"
-	user << "User position ([user_pos.x],[user_pos.y],[user_pos.z])"
-	user << "Other position ([other_pos.x],[other_pos.y],[other_pos.z])"
-	user << "get_dist = [get_dist(user_pos, other_pos)]"
-	user << "get_dir  = [get_dir(user_pos, other_pos)]"
-	user << "Adjacent = [user_pos.Adjacent(other_pos)]"
-	user << "Check ended."
+	to_chat(user, "Check relations of positions:")
+	to_chat(user, "User position ([user_pos.x],[user_pos.y],[user_pos.z])")
+	to_chat(user, "Other position ([other_pos.x],[other_pos.y],[other_pos.z])")
+	to_chat(user, "get_dist = [get_dist(user_pos, other_pos)]")
+	to_chat(user, "get_dir  = [get_dir(user_pos, other_pos)]")
+	to_chat(user, "Adjacent = [user_pos.Adjacent(other_pos)]")
+	to_chat(user, "Check ended.")
 
 
 /client/proc/startSinglo()
@@ -793,17 +793,17 @@ ADMIN_VERB_ADD(/client/proc/cmd_debug_mob_lists, R_DEBUG, FALSE)
 
 	switch(input("Which list?") in list("Players","Admins","Mobs","Living Mobs","Dead Mobs", "Clients"))
 		if("Players")
-			usr << jointext(GLOB.player_list,",")
+			to_chat(usr, jointext(GLOB.player_list,","))
 		if("Admins")
-			usr << jointext(admins,",")
+			to_chat(usr, jointext(admins,","))
 		if("Mobs")
-			usr << jointext(SSmobs.mob_list,",")
+			to_chat(usr, jointext(SSmobs.mob_list,","))
 		if("Living Mobs")
-			usr << jointext(GLOB.living_mob_list,",")
+			to_chat(usr, jointext(GLOB.living_mob_list,","))
 		if("Dead Mobs")
-			usr << jointext(GLOB.dead_mob_list,",")
+			to_chat(usr, jointext(GLOB.dead_mob_list,","))
 		if("Clients")
-			usr << jointext(clients,",")
+			to_chat(usr, jointext(clients,","))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
@@ -856,4 +856,4 @@ ADMIN_VERB_ADD(/client/proc/delete_npcs, R_DEBUG, FALSE)
 			continue
 		qdel(L)
 		total++
-	world << "Deleted [total] mobs"
+	to_chat(world, "Deleted [total] mobs")

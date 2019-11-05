@@ -4,7 +4,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/jackboots
-	pda_type = /obj/item/modular_computer/pda/science
+	pda_type = /obj/item/modular_computer/pda/moebius/science
 	id_type = /obj/item/weapon/card/id/sci
 
 /decl/hierarchy/outfit/job/science/New()
@@ -29,7 +29,7 @@
 /decl/hierarchy/outfit/job/science/roboticist
 	name = OUTFIT_JOB_NAME("Moebius Roboticist")
 	uniform = /obj/item/clothing/under/rank/roboticist
-	suit = /obj/item/clothing/suit/storage/robotech_jacket
+	suit = /obj/item/clothing/suit/storage/rank/robotech_jacket
 	belt = /obj/item/weapon/storage/belt/utility/full
 	pda_slot = slot_r_store
 	id_type = /obj/item/weapon/card/id/dkgrey

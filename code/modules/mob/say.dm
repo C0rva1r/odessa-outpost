@@ -92,7 +92,7 @@
 		to_chat(usr, SPAN_DANGER("You have deadchat muted."))
 		return
 
-	say_dead_direct("[pick("complains", "moans", "whines", "laments", "blubbers")], <span class='message'>\"[message]\"</span>", src)
+	say_dead_direct("[pick("complains", "moans", "whines", "laments", "blubbers")], <span class='message'>\"[emoji_parse(message)]\"</span>", src)
 
 /mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
 
@@ -173,8 +173,8 @@
 	if(length(message) >= 1 && copytext(message,1,2) == get_prefix_key(/decl/prefix/radio_main_channel))
 		return standard_mode
 
-	if(length(message) >= 2)
-		var/channel_prefix =  copytext(message, 1, 3)
+	if(length(message) >= 2 && copytext(message,1,2) == get_prefix_key(/decl/prefix/radio_channel_selection))
+		var/channel_prefix =  sanitize_key(copytext(message, 2, 3))
 		return department_radio_keys[channel_prefix]
 
 	return null

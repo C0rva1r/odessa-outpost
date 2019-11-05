@@ -1,57 +1,56 @@
-
 /datum/gear/accessory
-	sort_category = "Accessories"
-	category = /datum/gear/accessory
+	display_name = "wallet"
+	path = /obj/item/weapon/storage/wallet
 	slot = slot_accessory_buffer
-/*
-/datum/gear/accessory/tie
-	display_name = "tie selection"
-	path = /obj/item/clothing/accessory
+	sort_category = "Accessories"
 
-/datum/gear/accessory/tie/New()
-	..()
-	var/ties = list()
-	ties["blue tie"] = /obj/item/clothing/accessory/blue
-	ties["red tie"] = /obj/item/clothing/accessory/red
-	ties["blue tie, clip"] = /obj/item/clothing/accessory/blue_clip
-	ties["red long tie"] = /obj/item/clothing/accessory/red_long
-	ties["black tie"] = /obj/item/clothing/accessory/black
-	ties["yellow tie"] = /obj/item/clothing/accessory/yellow
-	ties["navy tie"] = /obj/item/clothing/accessory/navy
-	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
-	ties["brown tie"] = /obj/item/clothing/accessory/brown
-	gear_tweaks += new/datum/gear_tweak/path(ties)
-
-/datum/gear/accessory/tie_color
-	display_name = "colored tie"
-	path = /obj/item/clothing/accessory
-	flags = GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/tie_color/New()
-	..()
-	var/ties = list()
-	ties["tie"] = /obj/item/clothing/accessory
-	ties["striped tie"] = /obj/item/clothing/accessory/long
-	gear_tweaks += new/datum/gear_tweak/path(ties)
-*/
 /datum/gear/accessory/armband
 	display_name = "armband selection"
 	path = /obj/item/clothing/accessory/armband
 	flags = GEAR_HAS_TYPE_SELECTION
 
-/datum/gear/accessory/holster
-	display_name = "holster selection"
-	path = /obj/item/clothing/accessory/holster
+/datum/gear/accessory/dropstraps
+	display_name = "drop straps"
+	path = /obj/item/clothing/accessory/dropstraps
+
+/datum/gear/accessory/legbrace
+	display_name = "leg brace"
+	path = /obj/item/clothing/accessory/legbrace
+
+/datum/gear/accessory/locket
+	display_name = "locket"
+	path = /obj/item/clothing/accessory/locket
+
+/datum/gear/accessory/metalnecklace
+	display_name = "metal necklace"
+	path = /obj/item/clothing/accessory/necklace
+
+/datum/gear/accessory/neckbrace
+	display_name = "neck brace"
+	path = /obj/item/clothing/accessory/neckbrace
+
+/datum/gear/accessory/modular
+	display_name = "modular jacket selection"
+	path = /obj/item/clothing/accessory/suitjacket
 	flags = GEAR_HAS_TYPE_SELECTION
-	allowed_roles = list("Ironhammer Commander","Ironhammer Gunnery Sergeant","Ironhammer Inspector","Ironhammer Medical Specialist","Ironhammer Operative","First Officer","Captain")
-	sort_category = "Ironhammer"
+
+/datum/gear/accessory/scarf
+	display_name = "scarf selection"
+	path = /obj/item/clothing/accessory/scarf/
+	flags = GEAR_HAS_TYPE_SELECTION
+
+/datum/gear/accessory/sweater
+	display_name = "sweater selection"
+	path = /obj/item/clothing/accessory/sweater
+	flags = GEAR_HAS_TYPE_SELECTION
 
 /datum/gear/accessory/tie
 	display_name = "tie selection"
 	path = /obj/item/clothing/accessory/tie
-	slot = slot_w_uniform
 	flags = GEAR_HAS_TYPE_SELECTION
 
-/datum/gear/accessory/wallet
-	display_name = "wallet"
-	path = /obj/item/weapon/storage/wallet
+/datum/gear/accessory/waistcoat
+	display_name = "waistcoat selection"
+	path = /obj/item/clothing/accessory/wcoat
+	flags = GEAR_HAS_TYPE_SELECTION
+

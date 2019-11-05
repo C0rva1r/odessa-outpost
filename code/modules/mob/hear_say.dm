@@ -1,6 +1,6 @@
 // At minimum every mob has a hear_say proc.
 
-/mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol, var/speech_volume)
 	if(!client)
 		return
 
@@ -9,6 +9,8 @@
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.rank_prefix_name(H.GetVoice())
 
+	if(speech_volume)
+		message = "<FONT size='[speech_volume]'>[message]</FONT>"
 	if(italics)
 		message = "<i>[message]</i>"
 
@@ -167,13 +169,13 @@
 
 
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
-	if(!client)
+	if(!client || !speaker)
 		return
 
 	if(say_understands(speaker, language))
-		message = "<B>[src]</B> [language.format_message(message, verb)]"
+		message = "<B>[speaker]</B> [language.format_message(message, verb)]"
 	else
-		message = "<B>[src]</B> [verb]."
+		message = "<B>[speaker]</B> [verb]."
 
 	if(src.status_flags & PASSEMOTES)
 		for(var/obj/item/weapon/holder/H in src.contents)

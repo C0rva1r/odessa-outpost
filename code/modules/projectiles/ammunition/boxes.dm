@@ -11,7 +11,7 @@
 /obj/item/ammo_magazine/ammobox/resolve_attackby(atom/A, mob/user)
 	if(isturf(A) && locate(/obj/item/ammo_casing) in A || istype(A, /obj/item/ammo_casing))
 		if(!do_after(user, src.reload_delay, src))
-			user << SPAN_WARNING("You stoped scooping ammo into [src].")
+			to_chat(user, SPAN_WARNING("You stoped scooping ammo into [src]."))
 			return
 		if(collectAmmo(get_turf(A), user))
 			return TRUE
@@ -33,7 +33,7 @@
 		if(.)
 			user.visible_message(SPAN_NOTICE("[user] scoopes some ammo in [src]."),SPAN_NOTICE("You scoop some ammo in [src]."),SPAN_NOTICE("You hear metal clanging."))
 		else
-			user << SPAN_NOTICE("You fail to pick anything up with \the [src].")
+			to_chat(user, SPAN_NOTICE("You fail to pick anything up with \the [src]."))
 	update_icon()
 
 /obj/item/ammo_magazine/ammobox/a10mm
@@ -125,7 +125,7 @@
 	name = "ammunition box (5.56mm)"
 	icon_state = "box556mm"
 	matter = list(MATERIAL_STEEL = 10)
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 	caliber = "a556"
 	ammo_type = /obj/item/ammo_casing/a556
 	max_ammo = 80
@@ -139,7 +139,7 @@
 	name = "ammunition box (6.5mm)"
 	icon_state = "box65mm"
 	matter = list(MATERIAL_STEEL = 10)
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 	caliber = "6.5mm"
 	ammo_type = /obj/item/ammo_casing/c65
 	max_ammo = 80
@@ -153,7 +153,7 @@
 	name = "ammunition box (7.62mm)"
 	icon_state = "box762mm"
 	matter = list(MATERIAL_STEEL = 10)
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
 	mag_type = SPEEDLOADER | MAGAZINE
@@ -210,7 +210,7 @@
 	name = "ammunition box (14.5mm)"
 	icon_state = "box145mm"
 	matter = list(MATERIAL_STEEL = 8)
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 	caliber = "14.5mm"
 	ammo_type = /obj/item/ammo_casing/a145
 	max_ammo = 30

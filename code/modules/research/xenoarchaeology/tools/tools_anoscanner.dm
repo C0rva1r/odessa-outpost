@@ -7,10 +7,12 @@
 	item_state = "lampgreen"
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT
+	matter = list(MATERIAL_STEEL = 5, MATERIAL_GLASS = 5)
 	var/nearest_artifact_id = "unknown"
 	var/nearest_artifact_distance = -1
 	var/last_scan_time = 0
 	var/scan_delay = 25
+	matter = list(MATERIAL_STEEL = 1, MATERIAL_GLASS = 1)
 
 /obj/item/device/ano_scanner/Initialize()
 	. = ..()
@@ -20,13 +22,13 @@
 	if (istype(target, /obj/effect/portal))
 		var/obj/effect/portal/P = target
 		if (P.failchance)
-			user << SPAN_NOTICE("This aperture has approximately [100-P.failchance]% stability.")
+			to_chat(user, SPAN_NOTICE("This aperture has approximately [100-P.failchance]% stability."))
 		else
-			user << SPAN_NOTICE("This aperture appears to be stable and safe.")
+			to_chat(user, SPAN_NOTICE("This aperture appears to be stable and safe."))
 
 		var/time_existed = world.time - P.birthtime
 		var/time_remaining = P.lifetime - time_existed
-		user << SPAN_NOTICE("It should remain open for approximately another [time2text(time_remaining, "hh hours and mm minutes")]")
+		to_chat(user, SPAN_NOTICE("It should remain open for approximately another [time2text(time_remaining, "hh hours and mm minutes")]"))
 
 /obj/item/device/ano_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)
@@ -40,20 +42,25 @@
 			if(!user) return
 
 			if(nearest_artifact_distance >= 0)
-				user << "Exotic energy detected on wavelength '[nearest_artifact_id]' in a radius of [nearest_artifact_distance]m"
+				to_chat(user, "Exotic energy detected on wavelength '[nearest_artifact_id]' in a radius of [nearest_artifact_distance]m")
 			else
-				user << "Background radiation levels detected."
+				to_chat(user, "Background radiation levels detected.")
 	else
-		user << "Scanning array is recharging."
+		to_chat(user, "Scanning array is recharging.")
 	spawn(25)
 		icon_state = "ano_scanner"
 
 /obj/item/device/ano_scanner/proc/scan()
 	set background = 1
 
-	last_scan_time = world.time
 	nearest_artifact_distance = -1
+
 	var/turf/cur_turf = get_turf(src)
+	if(!cur_turf)
+		return
+
+	last_scan_time = world.time
+
 	for(var/turf/simulated/mineral/T in SSxenoarch.artifact_spawning_turfs)
 		if(T.artifact_find)
 			if(T.z == cur_turf.z)

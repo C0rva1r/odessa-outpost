@@ -102,19 +102,19 @@
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/buisness
-	name = "Buisness Hair"
+	name = "Business Hair"
 	icon_state = "business"
 
 /datum/sprite_accessory/hair/buisness2
-	name = "Buisness Hair 2"
+	name = "Business Hair 2"
 	icon_state = "business2"
 
 /datum/sprite_accessory/hair/buisness3
-	name = "Buisness Hair 3"
+	name = "Business Hair 3"
 	icon_state = "business3"
 
 /datum/sprite_accessory/hair/buisness4
-	name = "Buisness Hair 4"
+	name = "Business Hair 4"
 	icon_state = "business4"
 
 /datum/sprite_accessory/hair/bun
@@ -241,11 +241,11 @@
 	icon_state = "gentle"
 
 /datum/sprite_accessory/hair/halfbang
-	name = "Half-banged Hair"
+	name = "Half-Banged Hair"
 	icon_state = "halfbang"
 
 /datum/sprite_accessory/hair/halfbangalt
-	name = "Half-banged Hair Alt"
+	name = "Half-Banged Hair Alt"
 	icon_state = "halfbang_alt"
 
 /datum/sprite_accessory/hair/halfshaved
@@ -553,6 +553,106 @@
 	name = "Side Ponytail 2"
 	icon_state = "ponytailf"
 
+/datum/sprite_accessory/hair/teshari_default
+	name = "Teshari default"
+	icon_state = "teshari_default_s"
+
+/datum/sprite_accessory/hair/teshari_upright
+	name = "Teshari upright"
+	icon_state = "teshari_upright_s"
+
+/datum/sprite_accessory/hair/teshari_burst_short
+	name = "Teshari burst short"
+	icon_state = "teshari_burst_short_s"
+
+/datum/sprite_accessory/hair/teshari_burst
+	name = "Teshari burst"
+	icon_state = "teshari_burst_s"
+
+/datum/sprite_accessory/hair/teshari_pointy
+	name = "Teshari pointy"
+	icon_state = "teshari_pointy_s"
+
+/datum/sprite_accessory/hair/teshari_mushroom
+	name = "Teshari mushroom"
+	icon_state = "teshari_mushroom_s"
+
+/datum/sprite_accessory/hair/teshari_droopy
+	name = "Teshari droopy"
+	icon_state = "teshari_droopy_s"
+
+/datum/sprite_accessory/hair/teshari_mane
+	name = "Teshari mane"
+	icon_state = "teshari_mane_s"
+
+/datum/sprite_accessory/hair/teshari_ears
+	name = "Teshari ears"
+	icon_state = "teshari_ears_s"
+
+/datum/sprite_accessory/hair/teshari_spike
+	name = "Teshari spike"
+	icon_state = "teshari_spike_s"
+
+/datum/sprite_accessory/hair/teshari_tight
+	name = "Teshari tight"
+	icon_state = "teshari_tight_s"
+
+/datum/sprite_accessory/hair/teshari_long
+	name = "Teshari long"
+	icon_state = "teshari_long_s"
+
+/datum/sprite_accessory/hair/teshari_mohawk
+	name = "Teshari mohawk"
+	icon_state = "teshari_mohawk_s"
+
+/datum/sprite_accessory/hair/teshari_spiky
+	name = "Teshari spiky"
+	icon_state = "teshari_spiky_s"
+
+/datum/sprite_accessory/hair/una_spines_long
+	name = "Long Unathi Spines"
+	icon_state = "soghun_longspines_s"
+
+/datum/sprite_accessory/hair/una_spines_short
+	name = "Short Unathi Spines"
+	icon_state = "soghun_shortspines_s"
+
+/datum/sprite_accessory/hair/una_frills_long
+	name = "Long Unathi Frills"
+	icon_state = "soghun_longfrills_s"
+
+/datum/sprite_accessory/hair/una_frills_short
+	name = "Short Unathi Frills"
+	icon_state = "soghun_shortfrills_s"
+
+/datum/sprite_accessory/hair/una_horns
+	name = "Unathi Horns"
+	icon_state = "soghun_horns_s"
+
+/datum/sprite_accessory/hair/una_bighorns
+	name = "Unathi Big Horns"
+	icon_state = "unathi_bighorn_s"
+
+/datum/sprite_accessory/hair/una_smallhorns
+	name = "Unathi Small Horns"
+	icon_state = "unathi_smallhorn_s"
+
+/datum/sprite_accessory/hair/una_ramhorns
+	name = "Unathi Ram Horns"
+	icon_state = "unathi_ramhorn_s"
+
+/datum/sprite_accessory/hair/sergal_medicore
+	name = "Sergal Medicore"
+	icon_state = "serg_medicore_s"
+
+/datum/sprite_accessory/hair/sergal_tapered
+	name = "Sergal Tapered"
+	icon_state = "serg_tapered_s"
+
+/datum/sprite_accessory/hair/sergal_fairytail
+	name = "Sergal Fairytail"
+	icon_state = "serg_fairytail_s"
+
 /datum/sprite_accessory/hair/sideswept
 	name = "Side Swipe"
 	icon_state = "sideswipe"
@@ -645,6 +745,42 @@
 	icon_state = "zone"
 	gender = FEMALE
 
+/datum/sprite_accessory/hair/messy1
+	name = "Messy"
+	icon_state = "boyish1"
+
+/datum/sprite_accessory/hair/messy2
+	name = "Partly Kept"
+	icon_state = "boyish2"
+
+/datum/sprite_accessory/hair/messy3
+	name = "Tousled"
+	icon_state = "boyish3"
+
+/datum/sprite_accessory/hair/messy4
+	name = "Past Ears"
+	icon_state = "boyish4"
+
+/datum/sprite_accessory/hair/messy5
+	name = "Tidy A"
+	icon_state = "boyish5"
+
+/datum/sprite_accessory/hair/messy5b
+	name = "Tidy B"
+	icon_state = "boyish5b"
+
+/datum/sprite_accessory/hair/blinded
+	name = "Myopia" //alt; 'Fringe Beliefs'
+	icon_state = "overeyebowl"
+
+/datum/sprite_accessory/hair/bookish
+	name = "Bookish"
+	icon_state = "lem"
+
+/datum/sprite_accessory/hair/shorthair3beta
+	name = "Short Hair 3 (Alternate)"
+	icon_state = "shorthair3beta"
+
 /datum/sprite_accessory/hair/crestedquill
 	name = "Crested Quills"
 	icon_state = "crestedquills"
@@ -697,7 +833,24 @@
 	name = "Night Quills"
 	icon_state = "nightquills"
 
-/*
+/datum/sprite_accessory/hair/marqua_veryshort
+	name = "Mar'Qua very short headtails"
+	icon_state = "marqua_hair_veryshort_s"
+
+/datum/sprite_accessory/hair/marqua_short
+	name = "Mar'Qua short headtails"
+	icon_state = "marqua_hair_short_s"
+
+/datum/sprite_accessory/hair/marqua_average
+	name = "Mar'Qua average headtails"
+	icon_state = "marqua_hair_average_s"
+
+/datum/sprite_accessory/hair/marqua_long
+	name = "Mar'Qua long headtails"
+	icon_state = "marqua_hair_verylong_s"
+
+
+/* hairs?
 ////////////////////////////
 /  =--------------------=  /
 /  == Hair Definitions ==  /
@@ -1465,27 +1618,6 @@ Not confirmed. Someone needs to do the legwork eventually.
 		icon_state = "serg_plain"
 		species_allowed = list(SPECIES_SERGAL)
 
-	sergal_medicore
-		name = "Sergal Medicore"
-		icon = 'icons/mob/human_face_vr.dmi'
-		icon_add = 'icons/mob/human_face_vr_add.dmi'
-		icon_state = "serg_medicore"
-		species_allowed = list(SPECIES_SERGAL)
-
-	sergal_tapered
-		name = "Sergal Tapered"
-		icon = 'icons/mob/human_face_vr.dmi'
-		icon_add = 'icons/mob/human_face_vr_add.dmi'
-		icon_state = "serg_tapered"
-		species_allowed = list(SPECIES_SERGAL)
-
-	sergal_fairytail
-		name = "Sergal Fairytail"
-		icon = 'icons/mob/human_face_vr.dmi'
-		icon_add = 'icons/mob/human_face_vr_add.dmi'
-		icon_state = "serg_fairytail"
-		species_allowed = list(SPECIES_SERGAL)
-
 	braid
 		name = "Floorlength Braid"
 		icon = 'icons/mob/human_face_vr.dmi'
@@ -1640,43 +1772,30 @@ Not confirmed. Someone needs to do the legwork eventually.
 //Teshari things
 	teshari
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_altdefault
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_tight
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_excited
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_spike
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_long
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_burst
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_shortburst
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_mohawk
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_pointy
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_upright
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_mane
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_droopy
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
-
 	teshari_mushroom
 		icon_add = 'icons/mob/human_face_vr_add.dmi'
 
@@ -1863,3 +1982,9 @@ Not confirmed. Someone needs to do the legwork eventually.
 		icon_state = "cxeno_praetorian"
 		species_allowed = list(SPECIES_XENOHYBRID)
 		gender = NEUTER */
+
+//I
+//Don't
+//Know
+//Anymore
+//Fam

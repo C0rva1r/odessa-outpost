@@ -65,7 +65,14 @@
 	)
 
 	var/tmp/datum/wires/autolathe/wires = null
+	var/list/unsuitable_materials = list(MATERIAL_BIOMATTER)
 
+/obj/machinery/autolathe/bioprinter
+	name = "NeoTheology Bioprinter"
+	desc = "NeoTheology machine for printing things using biomass."
+	icon_state = "bio_autolathe"
+	unsuitable_materials = list()
+	circuit = /obj/item/weapon/circuitboard/neotheology/bioprinter
 
 /obj/machinery/autolathe/Initialize()
 	. = ..()
@@ -354,11 +361,11 @@
 
 	if(istype(eating, /obj/item/weapon/reagent_containers/glass))
 		if(container)
-			user << SPAN_NOTICE("There's already \a [container] inside [src].")
+			to_chat(user, SPAN_NOTICE("There's already \a [container] inside [src]."))
 			return
 		user.unEquip(eating, src)
 		container = eating
-		user << SPAN_NOTICE("You put \the [eating] into [src].")
+		to_chat(user, SPAN_NOTICE("You put \the [eating] into [src]."))
 		SSnano.update_uis(src)
 
 /obj/machinery/autolathe/proc/eat(mob/living/user)
@@ -380,7 +387,7 @@
 		return FALSE
 
 	if(!eating.matter || !eating.matter.len)
-		user << SPAN_NOTICE("\The [eating] does not contain significant amounts of useful materials and cannot be accepted.")
+		to_chat(user, SPAN_NOTICE("\The [eating] does not contain significant amounts of useful materials and cannot be accepted."))
 		return FALSE
 
 	if(istype(eating, /obj/item/weapon/computer_hardware/hard_drive/portable))
@@ -398,6 +405,7 @@
 		var/list/_matter = O.get_matter()
 		if(_matter)
 			for(var/material in _matter)
+				if(material in unsuitable_materials) continue
 				if(!(material in stored_material))
 					stored_material[material] = 0
 
@@ -437,17 +445,17 @@
 			O.reagents.trans_to(container, O.reagents.total_volume)
 
 	if(!filltype && !reagents_filltype)
-		to_chat(user, SPAN_NOTICE("\The [src] is full. Please remove material from [src] in order to insert more."))
+		to_chat(user, SPAN_NOTICE("\The [src] is full or this thing isn't suitable for this autolathe type. Try remove material from [src] in order to insert more."))
 		return
 	else if(filltype == 1)
-		user << SPAN_NOTICE("You fill \the [src] to capacity with \the [eating].")
+		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [eating]."))
 	else
-		user << SPAN_NOTICE("You fill \the [src] with \the [eating].")
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with \the [eating]."))
 
 	if(reagents_filltype == 1)
-		user << SPAN_NOTICE("Some liquid flowed to \the [container].")
+		to_chat(user, SPAN_NOTICE("Some liquid flowed to \the [container]."))
 	else if(reagents_filltype == 2)
-		user << SPAN_NOTICE("Some liquid flowed to the floor from autolathe beaker slot.")
+		to_chat(user, SPAN_NOTICE("Some liquid flowed to the floor from autolathe beaker slot."))
 
 	res_load() // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
 
@@ -480,7 +488,7 @@
 
 
 /obj/machinery/autolathe/proc/res_load()
-	flick("autolathe_o", src)
+	flick("[icon_state]_o", src)
 
 
 /obj/machinery/autolathe/proc/can_print(datum/computer_file/binary/design/design_file)
@@ -555,12 +563,13 @@
 /obj/machinery/autolathe/update_icon()
 	overlays.Cut()
 
-	icon_state = "autolathe"
+	icon_state = initial(icon_state)
+
 	if(panel_open)
-		overlays.Add(image(icon, "autolathe_p"))
+		overlays.Add(image(icon, "[icon_state]_p"))
 
 	if(working && !error) // if error, work animation looks awkward.
-		icon_state = "autolathe_n"
+		icon_state = "[icon_state]_n"
 
 /obj/machinery/autolathe/proc/consume_materials(datum/design/design)
 	for(var/material in design.materials)

@@ -1,12 +1,12 @@
 /obj/item/weapon/gun/projectile/clarissa
 	name = "FS HG 9x19 \"Clarissa\""
 	desc = "A small, easily concealable, but somewhat underpowered gun. Uses 9mm rounds."
-	icon_state = "pistol"
-	item_state = "pistol"
+	icon_state = "clarissa"
+	item_state = "clarissa"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "9mm"
 	silenced = 0
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	matter = list(MATERIAL_PLASTEEL = 12, MATERIAL_PLASTIC = 6)
 	price_tag = 1200
 	fire_sound = 'sound/weapons/guns/fire/pistol_fire.ogg'
@@ -23,11 +23,11 @@
 	var/iconstring = initial(icon_state)
 	var/itemstring = initial(item_state)
 
-	//if (ammo_magazine)
-	//	iconstring += "_mag"
+	if (ammo_magazine)
+		iconstring += "_mag"
 
-	//if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
-	//	iconstring += "_slide"
+	if (!ammo_magazine || !length(ammo_magazine.stored_ammo))
+		iconstring += "_slide"
 
 	if (silenced)
 		iconstring += "_s"

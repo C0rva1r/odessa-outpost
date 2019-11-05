@@ -13,8 +13,8 @@
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
-	if(blocked < 2 && isliving(target))
+/obj/item/projectile/bullet/chemdart/on_hit(atom/target, def_zone = null)
+	if(isliving(target))
 		var/mob/living/L = target
 		if(L.can_inject(target_zone=def_zone))
 			reagents.trans_to_mob(L, reagent_amount, CHEM_BLOOD)
@@ -40,6 +40,7 @@
 	ammo_type = /obj/item/ammo_casing/chemdart
 	max_ammo = 5
 	multiple_sprites = 1
+	mag_well = MAG_WELL_DART
 
 /obj/item/weapon/gun/projectile/dartgun
 	name = "dart gun"
@@ -55,6 +56,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
+	mag_well = MAG_WELL_DART
 
 	var/list/beakers = list() //All containers inside the gun.
 	var/list/mixing = list() //Containers being used for mixing.

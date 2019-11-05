@@ -17,7 +17,8 @@
 #define FORM_SERGALINE			"Sergal"
 #define FORM_SLIME				"Slime"
 #define FORM_AVIAN				"Avian"
-#define FORM_SPIDER				"Arachnoid"*/
+#define FORM_SPIDER				"Arachnoid"
+#define FORM_MARQUA				"Mar'Qua"*/
 
 /*/datum/species_form/template
 	name
@@ -106,3 +107,33 @@
 	base = 'icons/mob/human_races/r_spider.dmi'
 	deform = 'icons/mob/human_races/r_def_spider.dmi'
 	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
+
+/datum/species_form/stationxeno
+	playable = TRUE
+	name = FORM_STATIONXENO
+	base = 'icons/mob/human_races/xenos/r_xenos_drone.dmi'
+	deform =  'icons/mob/human_races/xenos/r_xenos_drone.dmi'
+	variantof = FORM_STATIONXENO
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR
+
+/datum/species_form/marqua
+	playable = TRUE
+	name = FORM_MARQUA
+	base = 'icons/mob/human_races/r_marqua_vr.dmi'
+	deform = 'icons/mob/human_races/r_def_marqua.dmi'
+	appearance_flags = HAS_HAIR_COLOR | HAS_EYE_COLOR | HAS_SKIN_COLOR | HAS_UNDERWEAR
+
+/datum/species_form/stationxeno/hunter
+	name = FORM_STATIONXENO_HUNTER
+	base = 'icons/mob/human_races/xenos/r_xenos_hunter.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_hunter.dmi'
+
+/datum/species_form/stationxeno/queen
+	name = FORM_STATIONXENO_QUEEN
+	base = 'icons/mob/human_races/xenos/r_xenos_queen.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_queen.dmi'
+
+/datum/species_form/stationxeno/sentinel
+	name = FORM_STATIONXENO_SENTI
+	base = 'icons/mob/human_races/xenos/r_xenos_sentinel.dmi'
+	deform = 'icons/mob/human_races/xenos/r_xenos_sentinel.dmi'

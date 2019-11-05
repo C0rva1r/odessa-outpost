@@ -1,15 +1,20 @@
 var/global/list/robot_modules = list(
-	"Standard"		= /obj/item/weapon/robot_module/standard,
-	"Service" 		= /obj/item/weapon/robot_module/service,
-	"Research" 		= /obj/item/weapon/robot_module/research,
-	"Miner" 		= /obj/item/weapon/robot_module/miner,
-	"Rescue" 		= /obj/item/weapon/robot_module/medical/rescue,
-	"Medical" 		= /obj/item/weapon/robot_module/medical/general,
-	"Security" 		= /obj/item/weapon/robot_module/security/general,
-	"Engineering"	= /obj/item/weapon/robot_module/engineering/general,
-	"Construction"	= /obj/item/weapon/robot_module/engineering/construction,
-	"Custodial" 	= /obj/item/weapon/robot_module/custodial
-	//"Combat" 		= /obj/item/weapon/robot_module/combat,
+	"Standard"					= /obj/item/weapon/robot_module/standard,
+	"Service" 					= /obj/item/weapon/robot_module/service,
+	"Research" 					= /obj/item/weapon/robot_module/research,
+	"Miner" 					= /obj/item/weapon/robot_module/miner,
+	"Rescue" 					= /obj/item/weapon/robot_module/medical/rescue,
+	"Medical" 					= /obj/item/weapon/robot_module/medical/general,
+	"Security" 					= /obj/item/weapon/robot_module/security/general,
+	"Engineering"				= /obj/item/weapon/robot_module/engineering/general,
+	"Construction"				= /obj/item/weapon/robot_module/engineering/construction,
+	"Custodial" 				= /obj/item/weapon/robot_module/custodial,
+	"Moebius Medihound"			= /obj/item/weapon/robot_module/robot/medihound,
+	"Ironhammer K9 Unit"		= /obj/item/weapon/robot_module/robot/knine,
+	"Custodial Hound"			= /obj/item/weapon/robot_module/robot/scrubpup,
+	"Moebius Scihound"			= /obj/item/weapon/robot_module/robot/science,
+	"Technomancer Engihound"	= /obj/item/weapon/robot_module/robot/engiedog,
+	//"Combat" 					= /obj/item/weapon/robot_module/combat,
 	)
 
 /obj/item/weapon/robot_module
@@ -131,6 +136,12 @@ var/global/list/robot_modules = list(
 
 	if(R.radio)
 		R.radio.recalculateChannels()
+
+	R.pixel_x = initial(pixel_x)
+	R.pixel_y = initial(pixel_y)
+	R.icon = initial(R.icon)
+	R.default_pixel_x = initial(pixel_x)
+
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = 0
 	R.choose_icon()
@@ -260,7 +271,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/tool/wrench/robotic(src)
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
-	src.modules += new /obj/item/device/scanner/healthanalyzer(src)
+	src.modules += new /obj/item/device/scanner/health(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.emag = new /obj/item/weapon/melee/energy/sword(src)
@@ -321,7 +332,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/device/scanner/healthanalyzer(src)
+	src.modules += new /obj/item/device/scanner/health(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/weapon/tool/scalpel(src)
 	src.modules += new /obj/item/weapon/tool/hemostat(src)
@@ -333,7 +344,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
-	src.modules += new /obj/item/device/scanner/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/scanner/reagent/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
@@ -420,7 +431,7 @@ var/global/list/robot_modules = list(
 /obj/item/weapon/robot_module/medical/rescue/New(var/mob/living/silicon/robot/R)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/device/scanner/healthanalyzer(src)
+	src.modules += new /obj/item/device/scanner/health(src)
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
 	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/weapon/hatton/robot(src)
@@ -517,7 +528,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/device/t_scanner(src) // to check underfloor wiring
-	src.modules += new /obj/item/device/scanner/analyzer(src) // to check air pressure in the area
+	src.modules += new /obj/item/device/scanner/gas(src) // to check air pressure in the area
 	src.modules += new /obj/item/device/lightreplacer(src) // to install lightning in the area
 	src.modules += new /obj/item/device/floor_painter(src)// to make america great again (c)
 	src.modules += new /obj/item/weapon/inflatable_dispenser(src) // to stop those pesky human beings entering the zone
@@ -572,7 +583,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/tool/wirecutters/robotic(src)
 	src.modules += new /obj/item/weapon/tool/multitool/robotic(src)
 	src.modules += new /obj/item/device/t_scanner(src)
-	src.modules += new /obj/item/device/scanner/analyzer(src)
+	src.modules += new /obj/item/device/scanner/gas(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
@@ -814,7 +825,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/glass/bucket(src)
 	src.modules += new /obj/item/weapon/material/minihoe(src)
 	src.modules += new /obj/item/weapon/material/hatchet(src)
-	src.modules += new /obj/item/device/scanner/analyzer/plant_analyzer(src)
+	src.modules += new /obj/item/device/scanner/plant(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/robot_harvester(src)
 	src.modules += new /obj/item/weapon/material/kitchen/rollingpin(src)
@@ -944,7 +955,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/device/scanner/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/scanner/reagent/adv(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)

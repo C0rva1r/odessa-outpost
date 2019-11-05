@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(vote)
-	name = "Vote"
-	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_NO_INIT
+	name = "Voting"
+	wait = 1 SECONDS
+	flags = SS_KEEP_TIMING
 	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
 	var/list/votes = list()
@@ -9,10 +9,19 @@ SUBSYSTEM_DEF(vote)
 	var/datum/poll/active_vote = null
 	var/vote_start_time = 0
 
-/datum/controller/subsystem/vote/PreInit()
+///datum/controller/subsystem/vote/PreInit()
+//	for(var/T in subtypesof(/datum/poll))
+//		var/datum/poll/P = new T
+//		votes[T] = P
+
+/datum/controller/subsystem/vote/Initialize()
+	. = ..()
 	for(var/T in subtypesof(/datum/poll))
 		var/datum/poll/P = new T
+		P.only_admin = P.IsAdminOnly()
 		votes[T] = P
+
+
 
 /datum/controller/subsystem/vote/proc/update_voters()
 	for(var/client/C in voters)
@@ -60,7 +69,7 @@ SUBSYSTEM_DEF(vote)
 
 	var/text = "[poll.name] vote started by [poll.initiator]."
 	log_vote(text)
-	world << {"<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes. <br>You have [poll.time] seconds to vote.</font>"}
+	to_chat(world, {"<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src]'>here</a> to place your votes. <br>You have [poll.time] seconds to vote.</font>"})
 	sound_to(world, sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = GLOB.vote_sound_channel))
 
 	return TRUE

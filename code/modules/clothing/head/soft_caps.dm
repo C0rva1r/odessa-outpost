@@ -20,10 +20,10 @@
 	src.flipped = !src.flipped
 	if(src.flipped)
 		icon_state = "[icon_state]_flipped"
-		user << "You flip the hat backwards."
+		to_chat(user, "You flip the hat backwards.")
 	else
 		src.icon_state = initial(icon_state)
-		user << "You flip the hat back in normal position."
+		to_chat(user, "You flip the hat back in normal position.")
 	update_wear_icon()	//so our mob-overlays update
 
 /obj/item/clothing/head/soft/red
@@ -67,12 +67,6 @@
 	initial_name = "purple cap"
 	desc = "A peaked cap in a purple color."
 	icon_state = "purplesoft"
-
-/obj/item/clothing/head/rainbow
-	name = "rainbow cap"
-	initial_name = "rainbow cap"
-	desc = "A peaked cap in a bright array of colors."
-	icon_state = "rainbowsoft"
 
 /obj/item/clothing/head/customcap
 	name = "customized cap"

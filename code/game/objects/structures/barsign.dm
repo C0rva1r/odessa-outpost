@@ -1,10 +1,10 @@
-/obj/structure/sign/double/barsign
+/obj/structure/sign/neon/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "empty"
 	anchored = 1
 	var/cult = 0
 
-/obj/structure/sign/double/barsign/proc/get_valid_states(initial=1)
+/obj/structure/sign/neon/barsign/proc/get_valid_states(initial=1)
 	. = icon_states(icon)
 	. -= "on"
 	. -= "narsiebistro"
@@ -12,23 +12,23 @@
 	if(initial)
 		. -= "Off"
 
-/obj/structure/sign/double/barsign/examine(mob/user)
+/obj/structure/sign/neon/barsign/examine(mob/user)
 	..()
 	switch(icon_state)
 		if("Off")
-			user << "It appears to be switched off."
+			to_chat(user, "It appears to be switched off.")
 		if("narsiebistro")
-			user << "It shows a picture of a large black and red being. Spooky!"
+			to_chat(user, "It shows a picture of a large black and red being. Spooky!")
 		if("on", "empty")
-			user << "The lights are on, but there's no picture."
+			to_chat(user, "The lights are on, but there's no picture.")
 		else
-			user << "It says '[icon_state]'"
+			to_chat(user, "It says '[icon_state]'")
 
-/obj/structure/sign/double/barsign/New()
+/obj/structure/sign/neon/barsign/New()
 	..()
 	icon_state = pick(get_valid_states())
 
-/obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
+/obj/structure/sign/neon/barsign/attackby(obj/item/I, mob/user)
 	if(cult)
 		return ..()
 
@@ -39,9 +39,9 @@
 			if(!sign_type)
 				return
 			icon_state = sign_type
-			user << SPAN_NOTICE("You change the barsign.")
+			to_chat(user, SPAN_NOTICE("You change the barsign."))
 		else
-			user << SPAN_WARNING("Access denied.")
+			to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	return ..()

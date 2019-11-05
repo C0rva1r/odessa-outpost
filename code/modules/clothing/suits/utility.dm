@@ -14,7 +14,7 @@
 	desc = "A suit that protects against fire and heat."
 	icon_state = "firesuit"
 	item_state = "firefighter"
-	w_class = ITEM_SIZE_LARGE//bulky item
+	w_class = ITEM_SIZE_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -36,9 +36,9 @@
 /obj/item/clothing/suit/fire/heavy
 	name = "firesuit"
 	desc = "A suit that protects against extreme fire and heat."
-	//icon_state = "thermal"
-	item_state = "ro_suit"
-	w_class = ITEM_SIZE_LARGE//bulky item
+	icon_state = "firesuit"
+	item_state = "firefighter"
+	w_class = ITEM_SIZE_BULKY//bulky item
 	slowdown = 1.5
 
 /*
@@ -48,7 +48,7 @@
 	name = "bomb hood"
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
-	armor = list(melee = 50, bullet = 50, laser = 50,energy = 50, bomb = 300, bio = 50, rad = 50)
+	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 300, bio = 50, rad = 50)
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES|EARS
 	item_flags = COVER_PREVENT_MANIPULATION
@@ -67,7 +67,7 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 3.2
-	armor = list(melee = 50, bullet = 50, laser = 50,energy = 50, bomb = 300, bio = 50, rad = 50)
+	armor = list(melee = 50, bullet = 50, energy = 50, bomb = 300, bio = 50, rad = 50)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO
 	item_flags = COVER_PREVENT_MANIPULATION
@@ -90,26 +90,26 @@
  * Radiation protection
  */
 /obj/item/clothing/head/radiation
-	name = "Radiation Hood"
+	name = "radiation hood"
 	icon_state = "rad"
 	desc = "A hood with radiation protective properties. Label: Made with lead, do not eat insulation"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	armor = list(melee = 0, bullet = 0, energy = 60, bomb = 0, bio = 100, rad = 100)
 	price_tag = 50
 
 
 /obj/item/clothing/suit/radiation
-	name = "Radiation suit"
+	name = "radiation suit"
 	desc = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
 	icon_state = "rad"
 	item_state = "rad_suit"
-	w_class = ITEM_SIZE_LARGE//bulky item
+	w_class = ITEM_SIZE_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	extra_allowed = list(/obj/item/clothing/head/radiation)
 	slowdown = 1.5
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 100)
+	armor = list(melee = 0, bullet = 0, energy = 60, bomb = 0, bio = 100, rad = 100)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	price_tag = 100

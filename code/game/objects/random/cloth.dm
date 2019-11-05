@@ -9,7 +9,7 @@
 				/obj/item/clothing/mask/balaclava/tactical = 20,
 				/obj/item/clothing/mask/bandana = 2,
 				/obj/item/clothing/mask/bandana/blue = 1,
-				/obj/item/clothing/mask/bandana/botany = 1,
+				/obj/item/clothing/mask/rank/botanist = 1,
 				/obj/item/clothing/mask/bandana/camo = 1,
 				/obj/item/clothing/mask/bandana/yellow = 1,
 				/obj/item/clothing/mask/bandana/green = 1,
@@ -20,22 +20,14 @@
 				/obj/item/clothing/mask/breath = 20,
 				/obj/item/clothing/mask/breath/medical = 5,
 				/obj/item/clothing/mask/gas = 20,
-				/obj/item/clothing/mask/gas/clown_hat = 10,
+				/obj/item/clothing/mask/costume/job/clown = 10,
 				/obj/item/clothing/mask/gas/ihs = 10,
-				/obj/item/clothing/mask/gas/swat = 2,
+				/obj/item/clothing/mask/gas/tactical = 2,
 				/obj/item/clothing/mask/gas/voice = 2,
-				/obj/item/clothing/mask/luchador = 2,
-				/obj/item/clothing/mask/luchador/rudos = 2,
-				/obj/item/clothing/mask/luchador/tecnicos = 2,
+				/obj/item/clothing/mask/costume/job/luchador = 2,
+				/obj/item/clothing/mask/costume/job/luchador/rudos = 2,
+				/obj/item/clothing/mask/costume/job/luchador/tecnicos = 2,
 				/obj/item/clothing/mask/muzzle = 2,
-				/obj/item/clothing/mask/scarf = 2,
-				/obj/item/clothing/mask/scarf/green = 2,
-				/obj/item/clothing/mask/scarf/ninja = 2,
-				/obj/item/clothing/mask/scarf/red = 2,
-				/obj/item/clothing/mask/scarf/redwhite = 2,
-				/obj/item/clothing/mask/scarf/stripedblue = 2,
-				/obj/item/clothing/mask/scarf/stripedgreen = 2,
-				/obj/item/clothing/mask/scarf/stripedred = 2,
 				/obj/item/clothing/mask/surgical = 8))
 
 /obj/random/cloth/masks/low_chance
@@ -78,13 +70,13 @@
 
 /obj/random/cloth/suit/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/suit/poncho = 10,
-				/obj/item/clothing/suit/storage/ass_jacket = 10,
-				/obj/item/clothing/suit/storage/cargo_jacket = 10,
-				/obj/item/clothing/suit/storage/det_trench = 5,
+				/obj/item/clothing/suit/storage/rank/ass_jacket = 10,
+				/obj/item/clothing/suit/storage/rank/cargo_jacket = 10,
+				/obj/item/clothing/suit/storage/rank/det_trench = 5,
 				/obj/item/clothing/suit/storage/hazardvest = 10,
-				/obj/item/clothing/suit/storage/insp_trench  = 3,
-				/obj/item/clothing/suit/storage/leather_jacket = 3,
-				/obj/item/clothing/suit/storage/robotech_jacket = 10,
+				/obj/item/clothing/suit/storage/rank/insp_trench  = 3,
+				/obj/item/clothing/suit/storage/leather = 3,
+				/obj/item/clothing/suit/storage/rank/robotech_jacket = 10,
 				/obj/item/clothing/suit/storage/toggle/bomber = 5,
 				/obj/item/clothing/suit/storage/toggle/hoodie = 5,
 				/obj/item/clothing/suit/storage/toggle/hoodie/black = 5,
@@ -94,7 +86,7 @@
 				/obj/item/clothing/suit/storage/toggle/labcoat/medspec = 3,
 				/obj/item/clothing/suit/storage/toggle/labcoat/science = 3,
 				/obj/item/clothing/suit/storage/toggle/labcoat/virologist = 3,
-				/obj/item/clothing/suit/storage/qm_coat = 2))
+				/obj/item/clothing/suit/storage/rank/qm_coat = 2))
 
 /obj/random/cloth/suit/low_chance
 	name = "low chance random suit"
@@ -137,14 +129,14 @@
 
 /obj/random/cloth/under/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/under/color/aqua = 5,
-				/obj/item/clothing/under/assistantformal = 5,
+				/obj/item/clothing/under/rank/assistant/formal = 5,
 				/obj/item/clothing/under/suit_jacket/blackskirt = 5,
 				/obj/item/clothing/under/suit_jacket/blazer = 5,
 				/obj/item/clothing/under/pj/blue = 5,
 				/obj/item/clothing/under/color/brown = 5,
-				/obj/item/clothing/under/captainformal = 2,
-				/obj/item/clothing/under/color/yellow = 5,
-				/obj/item/clothing/under/color/yellow = 5,
+				/obj/item/clothing/under/rank/captain/formal = 2,
+				/obj/item/clothing/under/color/grey = 5,
+				/obj/item/clothing/under/color/grey = 5,
 				/obj/item/clothing/under/color/red = 5,
 				/obj/item/clothing/under/color/pink = 5,
 				/obj/item/clothing/under/orange = 5,
@@ -160,11 +152,11 @@
 				/obj/item/clothing/under/color/lightpurple = 5,
 				/obj/item/clothing/under/color/lightred = 5,
 				/obj/item/clothing/under/overalls = 5,
-				/obj/item/clothing/under/pirate = 5,
+				/obj/item/clothing/under/costume/history/pirate = 5,
 				/obj/item/clothing/under/color/purple = 5,
-				/obj/item/clothing/under/rainbow = 5,
+				/obj/item/clothing/under/costume/misc/rainbowjumpsuit = 5,
 				/obj/item/clothing/under/pj = 5,
-				/obj/item/clothing/under/plaid/schoolgirlblue = 5,
+				/obj/item/clothing/under/plaid/properblue = 5,
 				/obj/item/clothing/under/suit_jacket/red = 5,
 				/obj/item/clothing/under/suit_jacket = 5,
 				/obj/item/clothing/under/turtleneck = 5,
@@ -205,32 +197,32 @@
 	icon_state = "armor-grey"
 
 /obj/random/cloth/head/item_to_spawn()
-	return pickweight(list(/obj/item/clothing/head/kitty = 1,    //God forgive us
+	return pickweight(list(/obj/item/clothing/head/costume/animal/kitty = 1,    //God forgive us
 				/obj/item/clothing/head/bandana/green = 5,
 				/obj/item/clothing/head/beret = 5,
-				/obj/item/clothing/head/HoS = 1,
+				/obj/item/clothing/head/rank/commander = 1,
 				/obj/item/clothing/head/bearpelt = 5,
-				/obj/item/clothing/head/hat/bowler = 5,
-				/obj/item/clothing/head/hat = 5,
-				/obj/item/clothing/head/cakehat = 5,
-				/obj/item/clothing/head/chaplain_hood = 5,
-				/obj/item/clothing/head/chefhat = 5,
-				/obj/item/clothing/head/hat/feathertrilby = 5,
-				/obj/item/clothing/head/hat/flatcap = 5,
-				/obj/item/clothing/head/hat/fez = 5,
-				/obj/item/clothing/head/hat/fedora = 5,
+				/obj/item/clothing/head/bowler = 5,
+				/obj/item/clothing/head/bowler/bowlerclassic = 5,
+				/obj/item/clothing/head/costume/misc/cake = 5,
+				/obj/item/clothing/head/rank/chaplain = 5,
+				/obj/item/clothing/head/rank/chef = 5,
+				/obj/item/clothing/head/fedora/feathered = 5,
+				/obj/item/clothing/head/flatcap = 5,
+				/obj/item/clothing/head/fez = 5,
+				/obj/item/clothing/head/fedora = 5,
 				/obj/item/clothing/head/firefighter/chief = 5,
 				/obj/item/clothing/head/hardhat = 5,
-				/obj/item/clothing/head/nun_hood = 5,
-				/obj/item/clothing/head/philosopher_wig = 5,
+				/obj/item/clothing/head/costume/job/nun = 5,
+				/obj/item/clothing/head/costume/history/philosopher = 5,
 				/obj/item/clothing/head/bandana/orange = 5,
 				/obj/item/clothing/head/bandana/green = 5,
-				/obj/item/clothing/head/nun_hood = 5,
-				/obj/item/clothing/head/det/grey = 5,
-				/obj/item/clothing/head/det = 5,
+				/obj/item/clothing/head/costume/job/nun = 5,
+				/obj/item/clothing/head/rank/inspector/grey = 5,
+				/obj/item/clothing/head/rank/inspector = 5,
 				/obj/item/clothing/head/soft = 1,
 				/obj/item/clothing/head/soft/red = 1,
-				/obj/item/clothing/head/rainbow = 1,
+				/obj/item/clothing/head/costume/misc/rainbow = 1,
 				/obj/item/clothing/head/soft/purple = 1,
 				/obj/item/clothing/head/soft/orange = 1,
 				/obj/item/clothing/head/soft/mime = 1,
@@ -238,7 +230,7 @@
 				/obj/item/clothing/head/soft/green = 1,
 				/obj/item/clothing/head/soft/blue = 1,
 				/obj/item/clothing/head/soft = 5,
-				/obj/item/clothing/head/hat/that = 5,
+				/obj/item/clothing/head/tophat = 5,
 				/obj/item/clothing/head/ushanka = 3,
 				/obj/item/clothing/head/welding = 5))
 
@@ -300,7 +292,7 @@
 				/obj/item/clothing/glasses/hud/health = 2,
 				/obj/item/clothing/glasses/hud/security = 2,
 				/obj/item/clothing/glasses/sechud/tactical = 2,
-				/obj/item/clothing/glasses/regular/threedglasses = 4,
+				/obj/item/clothing/glasses/threedglasses = 4,
 				/obj/item/clothing/glasses/welding = 4))
 
 /obj/random/cloth/glasses/low_chance
@@ -313,18 +305,18 @@
 
 /obj/random/cloth/shoes
 	name = "random shoes"
-	desc = "This is a random shoes"
+	desc = "This is a random pair of shoes."
 	icon_state = "armor-grey"
 
 /obj/random/cloth/shoes/item_to_spawn()
 	return pickweight(list(/obj/item/clothing/shoes/color/black = 14,
-				/obj/item/clothing/shoes/clown_shoes = 14,
+				/obj/item/clothing/shoes/costume/job/clown = 14,
 				/obj/item/clothing/shoes/color/blue = 1,   //Those are ugly, so they are rare
 				/obj/item/clothing/shoes/color/brown = 1,
 				/obj/item/clothing/shoes/color/green = 1,
-				/obj/item/clothing/shoes/color/orange = 1,
+				/obj/item/clothing/shoes/orange = 1,
 				/obj/item/clothing/shoes/color/purple = 1,
-				/obj/item/clothing/shoes/rainbow = 1,
+				/obj/item/clothing/shoes/costume/misc/rainbow = 1,
 				/obj/item/clothing/shoes/color = 1,
 				/obj/item/clothing/shoes/color/red = 1,
 				/obj/item/clothing/shoes/color/yellow = 1,

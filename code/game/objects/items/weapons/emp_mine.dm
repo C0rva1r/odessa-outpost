@@ -3,7 +3,7 @@
 	desc = "Self-rechargeable EMP Chinese mine. It still works, despite all the age."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "empmine0"
-	w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_BULKY
 
 	var/armed = FALSE
 
@@ -56,11 +56,11 @@
 	src.add_fingerprint(user)
 	if(armed)
 		disarm()
-		user << SPAN_NOTICE("You disarm \the [src]")
+		to_chat(user, SPAN_NOTICE("You disarm \the [src]"))
 	else
 		cooldown_timer = world.time - cooldown + 100
 		arm()
-		user << SPAN_WARNING("You arm \the [src]! You have 10 seconds to run away.")
+		to_chat(user, SPAN_WARNING("You arm \the [src]! You have 10 seconds to run away."))
 
 //Pre-armed mine
 /obj/item/weapon/emp_mine/armed/New()

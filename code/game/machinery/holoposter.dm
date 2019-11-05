@@ -1,6 +1,6 @@
 /obj/machinery/holoposter
 	name = "holographic poster"
-	desc = "Wall-mounted holographic projector displaying various advertisements."
+	desc = "A wall-mounted holographic projector displaying various advertisements."
 	icon = 'icons/obj/holoposter.dmi'
 	icon_state = "off"
 	anchored = 1
@@ -77,6 +77,6 @@
 /obj/machinery/holoposter/Process()
 	if(stat & (NOPOWER|BROKEN))
 		return
-	if((world.time > last_launch + 1 MINUTE) && (!icon_forced))
+	if((world.time > last_launch + 1 MINUTES) && (!icon_forced))
 		set_rand_sprite()
 		last_launch = world.time

@@ -1,6 +1,6 @@
 /obj/item/clothing/shoes/galoshes
-	desc = "A pair of slip-resistant rubber boots used for janitorial work."
 	name = "galoshes"
+	desc = "A pair of slip-resistant rubber boots used for janitorial work."
 	icon_state = "galoshes"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0 // DAMN BOI
@@ -14,7 +14,7 @@
 	icon_state = "jackboots"
 	item_state = "jackboots"
 	force = WEAPON_FORCE_WEAK
-	armor = list(melee = 30, bullet = 20, laser = 20, energy = 15, bomb = 20, bio = 0, rad = 0)
+	armor = list(melee = 30, bullet = 20, energy = 20, bomb = 20, bio = 0, rad = 0)
 	siemens_coefficient = 0.6
 	can_hold_knife = 1
 
@@ -24,7 +24,7 @@
 	icon_state = "reinforced"
 	item_state = "reinforced"
 	force = 2
-	armor = list(melee = 30, bullet = 25, laser = 25, energy = 5, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 30, bullet = 25, energy = 15, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.5
 
 /obj/item/clothing/shoes/workboots
@@ -32,6 +32,18 @@
 	desc = "A pair of steel-toed utility workboots."
 	icon_state = "workboots"
 	item_state = "workboots"
-	armor = list(melee = 40, bullet = 25, laser = 25, energy = 15, bomb = 20, bio = 0, rad = 20)
+	armor = list(melee = 40, bullet = 25, energy = 20, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0
 	can_hold_knife = 1
+
+/obj/item/clothing/shoes/jackboots/toeless
+	name = "toeless jackboots"
+	desc = "A modified pair of jackboots, designed for species with clawed feet."
+	icon_state = "digiboots"
+	species_restricted = null
+
+/obj/item/clothing/shoes/workboots/toeless
+	name = "toeless workboots"
+	desc = "A modified pair of workboots, designed for species with clawed feet."
+	icon_state = "workbootstoeless"
+	species_restricted = null

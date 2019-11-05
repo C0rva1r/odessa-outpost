@@ -6,11 +6,11 @@
 	icon_state = "l6closed-empty"
 	item_state = "l6closedmag"
 	w_class = ITEM_SIZE_HUGE
-	icon = 'icons/obj/weapons/lmg.dmi'
+	icon = 'icons/obj/guns/lmg.dmi'
 	force = WEAPON_FORCE_PAINFUL
 	slot_flags = 0
 	caliber = "a762"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	mag_well = MAG_WELL_BOX
@@ -26,8 +26,8 @@
 
 	firemodes = list(
 		FULL_AUTO_600,
-		list(mode_name="short bursts",	burst=5, move_delay=6, dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2), icon="burst"),
-		list(mode_name="long bursts",	burst=8, move_delay=8, dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2), icon="burst"),
+		BURST_5_ROUND,
+		BURST_8_ROUND
 		)
 
 	var/cover_open = 0
@@ -77,6 +77,7 @@
 		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return
 	..()
+
 
 /obj/item/weapon/gun/projectile/automatic/lmg/pk
 	name = "Pulemyot Kalashnikova"

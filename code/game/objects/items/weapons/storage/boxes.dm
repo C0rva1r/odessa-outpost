@@ -24,12 +24,10 @@
 	desc = "It's just an ordinary box."
 	icon_state = "box"
 	item_state = "syringe_kit"
+	max_storage_space = DEFAULT_NORMAL_STORAGE
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
-	var/maxHealth = 20	//health is already defined
+	health = 20
 
-/obj/item/weapon/storage/box/Initialize()
-	health = maxHealth
-	.=..()
 
 /obj/item/weapon/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -44,11 +42,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2)
 	if (istype(user, /mob/living))
 		var/mob/living/L = user
-		var/damage
-		if (!L.mob_size)
-			damage = 3//A safety incase i forgot to set a mob_size on something
-		else
-			damage = L.mob_size//he bigger you are, the faster it tears
+		var/damage = L.mob_size ? L.mob_size : MOB_MINISCULE
 
 		if (!damage || damage <= 0)
 			return
@@ -58,11 +52,11 @@
 		var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
 		playsound(loc, toplay, 50, 1, 2)
 		shake_animation()
-		sleep(5)
-		if ((health-damage) <= 0)
-			L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
-		damage(damage)
-	..()
+		spawn(5)
+			if ((health-damage) <= 0)
+				L.visible_message("<span class='danger'>[L] tears open \the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+			damage(damage)
+		..()
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/weapon/storage/box/attack_self(mob/user as mob)
@@ -79,7 +73,7 @@
 	close_all()
 
 	// Now make the cardboard
-	user << SPAN_NOTICE("You fold [src] flat.")
+	to_chat(user, SPAN_NOTICE("You fold [src] flat."))
 	new src.foldable(get_turf(src))
 	qdel(src)
 
@@ -643,11 +637,11 @@
 	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "spbox"
-	can_hold = list(/obj/item/toy/snappop)
+	can_hold = list(/obj/item/toy/junk/snappop)
 	New()
 		..()
 		for(var/i=1; i <= 8; i++)
-			new /obj/item/toy/snappop(src)
+			new /obj/item/toy/junk/snappop(src)
 
 /obj/item/weapon/storage/box/matches
 	name = "matchbox"
@@ -730,7 +724,7 @@
 	foldable = null
 	max_w_class = ITEM_SIZE_NORMAL
 	can_hold = list(/obj/item/organ, /obj/item/weapon/reagent_containers/food, /obj/item/weapon/reagent_containers/glass)
-	max_storage_space = 21
+	max_storage_space = DEFAULT_NORMAL_STORAGE * 1.25
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
 
 /obj/item/weapon/storage/box/autolathe_blank

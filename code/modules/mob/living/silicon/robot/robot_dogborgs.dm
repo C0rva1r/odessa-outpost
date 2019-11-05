@@ -1,26 +1,8 @@
-/obj/item/weapon/robot_module
-	var/vr_sprites = list()
-
-/hook/startup/proc/robot_modules_vr()
-	robot_modules["Moebius Medihound"] = /obj/item/weapon/robot_module/robot/medihound
-	robot_modules["Ironhammer K9 Unit"] = /obj/item/weapon/robot_module/robot/knine
-	robot_modules["Custodial Hound"] = /obj/item/weapon/robot_module/robot/scrubpup
-	robot_modules["Moebius Scihound"] = /obj/item/weapon/robot_module/robot/science
-	robot_modules["Technomancer Engihound"] = /obj/item/weapon/robot_module/robot/engiedog
-	return 1
-
-//Just add a new proc with the robot_module type if you wish to run some other vore code
-/obj/item/weapon/robot_module/proc/vr_new() // Any Global modules, just add them before the return (This will also affect all the borgs in this file)
-	return
-
-/obj/item/weapon/robot_module/proc/vr_add_sprites() // Adds sprites from this file into list of avialible ones for global modules
-	sprites += vr_sprites
-	return
-
 /obj/item/weapon/robot_module/robot/knine
 	name = "Ironhammer K9 Module"
 	sprites = list(
-					"K9 hound" = "k9",
+					"K9 Hound" = "k9",
+					"V2 K9 Hound" = "ihsechound",
 					)
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
@@ -50,7 +32,7 @@
 	src.modules += new /obj/item/weapon/book/manual/wiki/security_ironparagraphs(src) // book of ironhammer paragraphs
 	src.emag = new /obj/item/weapon/gun/energy/laser/mounted(src)
 
-	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
+	R.icon 		 = 'icons/mob/robots_wide.dmi'
 	R.pixel_x 	 = -16
 	R.old_x 	 = -16
 	R.default_pixel_x = -16
@@ -76,7 +58,7 @@
 	sprites = list(
 					"Medical Hound" = "medihound",
 					"Dark Medical Hound (Static)" = "medihounddark",
-					"Mediborg model V-2" = "vale",
+					"V2 Medihound" = "vale",
 					)
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
@@ -100,7 +82,7 @@
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)
-	src.modules += new /obj/item/device/scanner/healthanalyzer(src)
+	src.modules += new /obj/item/device/scanner/health(src)
 	src.modules += new /obj/item/weapon/reagent_containers/borghypo/medical(src)
 	src.modules += new /obj/item/weapon/tool/scalpel(src)
 	src.modules += new /obj/item/weapon/tool/hemostat(src)
@@ -112,13 +94,13 @@
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
-	src.modules += new /obj/item/device/scanner/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/scanner/reagent/adv(src)
 	src.modules += new /obj/item/weapon/autopsy_scanner(src) // an autopsy scanner
 	src.emag = new /obj/item/weapon/reagent_containers/spray(src)
 	src.emag.reagents.add_reagent("pacid", 250)
 	src.emag.name = "Polyacid spray"
 
-	R.icon = 'icons/mob/widerobot_vr.dmi'
+	R.icon = 'icons/mob/robots_wide.dmi'
 	R.pixel_x 	 = -16
 	R.old_x  	 = -16
 	R.default_pixel_x = -16
@@ -184,7 +166,7 @@
 	but requiring a large capacity. The huge chassis consequentially grants it a degree of toughness, \
 	though it is slow and cheaply made"
 
-/obj/item/weapon/robot_module/custodial/New(var/mob/living/silicon/robot/R)
+/obj/item/weapon/robot_module/robot/scrubpup/New(var/mob/living/silicon/robot/R)
 	src.modules += new /obj/item/weapon/tool/crowbar/robotic(src)
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/weapon/gripper/service(src)
@@ -199,7 +181,10 @@
 	src.emag.reagents.add_reagent("lube", 250)
 	src.emag.name = "Lube spray"
 
-
+	R.icon = 'icons/mob/robots_wide.dmi'
+	R.pixel_x 	 = -16
+	R.old_x  	 = -16
+	R.default_pixel_x = -16
 
 	..(R)
 
@@ -212,7 +197,7 @@
 		var/obj/item/weapon/reagent_containers/spray/S = src.emag
 		S.reagents.add_reagent("lube", 2 * amount)
 
-	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
+	R.icon 		 = 'icons/mob/robots_wide.dmi'
 	R.pixel_x 	 = -16
 	R.old_x 	 = -16
 	R.default_pixel_x = -16
@@ -256,7 +241,7 @@
 	src.modules += new /obj/item/weapon/reagent_containers/syringe(src)
 	src.modules += new /obj/item/weapon/gripper/chemistry(src)
 	src.modules += new /obj/item/weapon/reagent_containers/dropper/industrial(src)
-	src.modules += new /obj/item/device/scanner/reagent_scanner/adv(src)
+	src.modules += new /obj/item/device/scanner/reagent/adv(src)
 	src.modules += new /obj/item/weapon/extinguisher(src)
 	src.modules += new /obj/item/weapon/storage/bag/plants(src)
 	src.modules += new /obj/item/weapon/pen/robopen(src)
@@ -271,7 +256,7 @@
 	N.synths = list(nanite)
 	src.modules += N
 
-	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
+	R.icon 		 = 'icons/mob/robots_wide.dmi'
 	R.pixel_x 	 = -16
 	R.old_x 	 = -16
 	R.default_pixel_x = -16
@@ -280,7 +265,7 @@
 /obj/item/weapon/robot_module/robot/engiedog
 	name = "Technomancer Hound Module"
 	sprites = list(
-					"V2 Engidog" = "thottbot",
+					"V2 Engihound" = "thottbot",
 					"Pupdozer" = "pupdozer",
 					)
 	channels = list("Engineering" = 1)
@@ -312,7 +297,7 @@
 	src.modules += new /obj/item/weapon/tool/wirecutters/robotic(src)
 	src.modules += new /obj/item/weapon/tool/multitool/robotic(src)
 	src.modules += new /obj/item/device/t_scanner(src)
-	src.modules += new /obj/item/device/scanner/analyzer(src)
+	src.modules += new /obj/item/device/scanner(src)
 	src.modules += new /obj/item/taperoll/engineering(src)
 	src.modules += new /obj/item/weapon/gripper(src)
 	src.modules += new /obj/item/weapon/gripper/no_use/loader(src)
@@ -380,15 +365,8 @@
 	FWT.synths = list(wood)
 	src.modules += FWT
 
-	R.icon 		 = 'icons/mob/widerobot_vr.dmi'
+	R.icon 		 = 'icons/mob/robots_wide.dmi'
 	R.pixel_x 	 = -16
 	R.old_x 	 = -16
 	R.default_pixel_x = -16
-	..()
-
-/obj/item/weapon/robot_module/Reset(var/mob/living/silicon/robot/R)
-	R.pixel_x = initial(pixel_x)
-	R.pixel_y = initial(pixel_y)
-	R.icon = initial(R.icon)
-	R.default_pixel_x = initial(pixel_x)
 	..()

@@ -17,7 +17,7 @@
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_genetics, access_heads,
 		access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
-		access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks
+		access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks, access_research_equipment
 	)
 
 	ideal_character_age = 50
@@ -29,6 +29,7 @@
 	software_on_spawn = list(/datum/computer_file/program/comm,
 							 /datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor,
+							 /datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/reports)
 
 	description = "You are the head of the Moebius Medical branch, contracted by the captain to provide medical services to the crew.<br>\
@@ -70,7 +71,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology,
-		access_genetics
+		access_genetics, access_maint_tunnels, access_external_airlocks, access_research_equipment
 	)
 
 	stat_modifiers = list(
@@ -78,7 +79,8 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	)
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
-							 /datum/computer_file/program/camera_monitor)
+							/datum/computer_file/program/chem_catalog,
+							/datum/computer_file/program/camera_monitor)
 
 
 	description = "You are a highly educated professional doctor, working a placement aboard Eris to treat the injured.<br>\
@@ -134,7 +136,8 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 		STAT_BIO = 30,
 	)
 
-	software_on_spawn = list(/datum/computer_file/program/scanner)
+	software_on_spawn = list(/datum/computer_file/program/chem_catalog,
+							/datum/computer_file/program/scanner)
 
 	description = "The chemist is a man of medicine, as much as of science. You mix up colorful liquids to make other, equally colorful, but more useful liquids.<br>\
 	<br>\
@@ -175,7 +178,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
 
 	access = list(
-		access_moebius, access_medical_equip, access_morgue, access_psychiatrist
+		access_moebius, access_medical_equip, access_morgue, access_psychiatrist, access_chemistry
 	)
 
 	stat_modifiers = list(
@@ -183,7 +186,8 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	)
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
-							 /datum/computer_file/program/camera_monitor)
+							/datum/computer_file/program/chem_catalog,
+							/datum/computer_file/program/camera_monitor)
 
 
 /obj/landmark/join/start/psychiatrist
@@ -208,7 +212,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	outfit_type = /decl/hierarchy/outfit/job/medical/paramedic
 	access = list(
 		access_moebius, access_medical_equip, access_morgue, access_surgery,
-		access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist
+		access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_research_equipment, access_chemistry
 	)
 
 	stat_modifiers = list(
@@ -219,6 +223,7 @@ Your second loyalty is to your career with Moebius corp, and to your coworkers i
 	)
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
+							/datum/computer_file/program/chem_catalog,
 							 /datum/computer_file/program/camera_monitor)
 
 	description = "You are a Moebius Paramedic, The hero of the hour! While doctors largely spend their time cloistered away in medbay, your job is to be out there on the frontlines. You work in the field, sometimes treating people on the spot, sometimes bringing them back to medical for specialist treatment. <br>\

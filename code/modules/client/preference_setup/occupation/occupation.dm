@@ -103,6 +103,7 @@
 	//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 	var/datum/job/lastJob
 	for(var/datum/job/job in SSjob.occupations)
+		if(job.latejoin_only) continue
 		//var/unspent = pref.points_by_job[job]
 		var/current_level = JOB_LEVEL_NEVER
 		if(pref.job_high == job.title)
@@ -137,8 +138,8 @@
 			bad_message = "\[IN [(available_in_days)] DAYS]"*/
 		else if(job.minimum_character_age && user.client && (user.client.prefs.age < job.minimum_character_age))
 			bad_message = "\[MINIMUM CHARACTER AGE: [job.minimum_character_age]]"
-		else if(user.client && job.is_religion_restricted(user.client.prefs.religion))
-			bad_message = "\[CONFLICT OF INTEREST: RELIGION]"
+		else if(user.client && job.is_setup_restricted(user.client.prefs.setup_options))
+			bad_message = "\[SETUP RESTRICTED]"
 
 		if(("Assistant" in pref.job_low) && (rank != "Assistant"))
 			. += "<a href='?src=\ref[src];set_skills=[rank]'><font color=grey>[rank]</font></a></td><td></td></tr>"
@@ -211,8 +212,9 @@
 				return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
 
 	else if(href_list["set_job"] && href_list["set_level"])
-		create_job_description(user)
-		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"]))) return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
+		if(SetJob(user, href_list["set_job"], text2num(href_list["set_level"])))
+			create_job_description(user)
+			return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
 /*
 	else if(href_list["set_skills"])
 		var/rank = href_list["set_skills"]
@@ -275,6 +277,8 @@
 	//First of all, we check if the user has opted to query any specific job by clicking the ? button
 	if(job_info_selected_rank)
 		job = SSjob.GetJob(job_info_selected_rank)
+	else if("Assistant" in pref.job_low)
+		job = SSjob.GetJob("Assistant")
 	else
 		//If not, then we'll attempt to get the job they have set as high priority, if any
 		job = SSjob.GetJob(pref.job_high)
@@ -326,6 +330,15 @@
 		job_desc += "<ul>"
 		for (var/a in job.stat_modifiers)
 			job_desc += "<li>[a]: [job.stat_modifiers[a]]</li>"
+		job_desc += "</ul>"
+	else
+		job_desc += "None"
+	job_desc += "<h1 style='padding: 0px;'>Perks:</h1>"
+	if (job.perks.len)
+		job_desc += "<ul>"
+		for (var/a in job.perks)
+			var/datum/perk/P = a
+			job_desc += "<li>[initial(P.name)]</li>"
 		job_desc += "</ul>"
 	else
 		job_desc += "None"

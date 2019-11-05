@@ -1,17 +1,18 @@
 /datum/craft_recipe/clothing
 	category = "Clothing"
 	time = 50
+	related_stats = list(STAT_COG)
 
 /datum/craft_recipe/clothing/cardborg_suit
 	name = "cardborg suit"
-	result = /obj/item/clothing/suit/cardborg
+	result = /obj/item/clothing/suit/costume/halloween/cardborg
 	steps = list(
 		list(CRAFT_MATERIAL, 3, MATERIAL_CARDBOARD)
 	)
 
 /datum/craft_recipe/clothing/cardborg_helmet
 	name = "cardborg helmet"
-	result = /obj/item/clothing/head/cardborg
+	result = /obj/item/clothing/head/costume/halloween/cardborg
 	steps = list(
 		list(CRAFT_MATERIAL, 1, MATERIAL_CARDBOARD)
 	)
@@ -70,5 +71,31 @@
 	steps = list(
 		list(/obj/item/clothing, 1, time = 30),
 		list(/obj/item/clothing, 1, time = 30),
+		list(QUALITY_CUTTING, 10, 60)
+	)
+	
+/datum/craft_recipe/clothing/muzzle
+	name = "muzzle"
+	result = /obj/item/clothing/mask/muzzle
+	steps = list(
+		list(/obj/item/stack/material/cloth, 5, time = 15),
+		list(CRAFT_MATERIAL, 1, MATERIAL_STEEL),	
+		list(QUALITY_CUTTING, 10, 60)
+	)	
+	
+/datum/craft_recipe/clothing/balaclava
+	name = "balaclava"
+	result = /obj/item/clothing/mask/balaclava
+	steps = list( 
+		list(/obj/item/stack/material/cloth, 10, time = 15),
+		list(QUALITY_CUTTING, 10, 60)
+	)
+	
+
+/datum/craft_recipe/clothing/blindfold
+	name = "blindfold"
+	result = /obj/item/clothing/glasses/blindfold
+	steps = list(
+		list(/obj/item/stack/material/cloth, 5, time = 15),
 		list(QUALITY_CUTTING, 10, 60)
 	)

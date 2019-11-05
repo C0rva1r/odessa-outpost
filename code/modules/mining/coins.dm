@@ -3,6 +3,7 @@
 /obj/item/weapon/coin
 	icon = 'icons/obj/items.dmi'
 	name = COIN_STANDARD
+	desc = "A coin."
 	icon_state = "coin"
 	flags = CONDUCT
 	force = 0.0
@@ -18,44 +19,51 @@
 
 /obj/item/weapon/coin/gold
 	name = COIN_GOLD
+	desc = "A gold coin."
 	icon_state = "coin_gold"
 
 /obj/item/weapon/coin/silver
 	name = COIN_SILVER
+	desc = "A silver coin."
 	icon_state = "coin_silver"
 
 /obj/item/weapon/coin/diamond
 	name = COIN_DIAMOND
+	desc = "A diamond coin."
 	icon_state = "coin_diamond"
 
 /obj/item/weapon/coin/iron
 	name = COIN_IRON
+	desc = "A iron coin."
 	icon_state = "coin_iron"
 
 /obj/item/weapon/coin/plasma
 	name = COIN_PLASMA
+	desc = "A plasma coin."
 	icon_state = "coin_plasma"
 
 /obj/item/weapon/coin/uranium
+	desc = "A uranium coin."
 	name = COIN_URANIUM
 	icon_state = "coin_uranium"
 
 /obj/item/weapon/coin/platinum
 	name = COIN_PLATINUM
+	desc = "A platinum coin."
 	icon_state = "coin_adamantine"
 
 /obj/item/weapon/coin/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack/cable_coil))
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)
-			user << SPAN_NOTICE("There already is a string attached to this coin.")
+			to_chat(user, SPAN_NOTICE("There already is a string attached to this coin."))
 			return
 		if (CC.use(1))
 			overlays += image('icons/obj/items.dmi',"coin_string_overlay")
 			string_attached = 1
-			user << SPAN_NOTICE("You attach a string to the coin.")
+			to_chat(user, SPAN_NOTICE("You attach a string to the coin."))
 		else
-			user << SPAN_NOTICE("This cable coil appears to be empty.")
+			to_chat(user, SPAN_NOTICE("This cable coil appears to be empty."))
 		return
 	else if(istype(W,/obj/item/weapon/tool/wirecutters))
 		if(!string_attached)
@@ -67,7 +75,7 @@
 		CC.update_icon()
 		overlays = list()
 		string_attached = null
-		user << "\blue You detach the string from the coin."
+		to_chat(user, "\blue You detach the string from the coin.")
 	else ..()
 
 /obj/item/weapon/coin/attack_self(mob/user as mob)
